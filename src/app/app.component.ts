@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,6 +8,17 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent  implements OnInit{
+  sidebarToggle = document.body.querySelector('#sidebarToggle');
+  ngOnInit(): void {
+    // Toggle the side navigation
+    if (this.sidebarToggle) {
+      this.sidebarToggle.addEventListener('click', (event: Event) => {
+        event.preventDefault();
+        document.body.classList.toggle('sb-sidenav-toggled');
+        localStorage.setItem('sb|sidebar-toggle', document.body.classList.contains('sb-sidenav-toggled').toString());
+      });
+    }
+  }
   title = 'Veezeta';
 }
