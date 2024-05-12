@@ -29,11 +29,15 @@
 <th data-sortable="true" style="width: 11.090225563909774%;"><a href="#" class="datatable-sorter">Email</a></th>
 <th data-sortable="true" style="width: 16.917293233082706%;"><a href="#" class="datatable-sorter">Title </a></th>
 <th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Education</a></th>
+<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">speciallize</a></th>
+<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Fees</a></th>
+<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">country</a></th>
+<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Gender</a></th>
 <th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Remove</a></th>
 </tr>
 </thead>
 <tbody>
-    @for(pro of doctors;track pro.id;){
+    @for(pro of AllDoctor ;track pro.id;){
  <tr data-index="1"><td>{{pro.image}} </td>
     <td>{{pro.id}} </td>
     <td>{{pro.username}} </td>
@@ -41,7 +45,11 @@
     <td>{{pro.email}}</td>
     <td>{{pro.title}}</td>
     <td>{{pro.education}}</td>
-    <td>Reomve</td>
+    <td>{{pro.speciallize}}</td>
+    <td>{{pro.Fees}}</td>
+    <td>{{pro.country}}</td>
+    <td>{{pro.gender}}</td>
+    <td>Remove</td>
 </tr>
     }
     <!-- <tr data-index="51">

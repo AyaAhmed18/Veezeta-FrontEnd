@@ -8,4 +8,9 @@ export interface Doctor {
     email:string
     title:string
     education:string
+    country:string,
+    speciallize:string,
+    gender:boolean,
+    fees:string,
+    background:string
 }

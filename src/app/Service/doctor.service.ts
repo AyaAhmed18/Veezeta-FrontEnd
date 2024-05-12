@@ -12,18 +12,16 @@ export class DoctorService {
   private apiUrl = environment.baseUrl;
   constructor(private httpClient: HttpClient) { 
   }
-//     GetallDoctors(username:string, email: string,phone:number,img:SafeUrl,title:string ,education:string,id:string) {
-//       const Doctordetails = { username, email ,phone,img,title,education,id };
-//       return this.httpClient.post<any>(`${this.apiUrl}/Doctor/Getall`, Doctordetails)   
-// }
-getAllDoctors(pageSize: number, pageNumber: number): Observable<any> {
-  const params = new HttpParams()
-      .set('pageSize', pageSize.toString())
-      .set('pageNumber', pageNumber.toString());
-  return this.httpClient.get<any>(`${this.apiUrl}/Doctor`, { params});
+
+getAllDoctors(): Observable<any> {
+  // const params = new HttpParams()
+  return this.httpClient.get<any>(`${this.apiUrl}/Doctor`);
 }
 Deletedocbyid(id: number): Observable<Doctor> {
   return this.httpClient.delete<Doctor>(`${this.apiUrl}/Doctor/delete/${id}`);
+}
+Getone(id: number): Observable<Doctor> {
+  return this.httpClient.get<Doctor>(`${this.apiUrl}/Doctor/delete/${id}`);
 }
 
 }
