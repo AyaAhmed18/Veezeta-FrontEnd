@@ -30,12 +30,12 @@ Alldoc:number=0;
     this._doctorservice.getAllDoctors()
     .subscribe({ next: (data) => {
       this.AllDoctor = data;
-      console.log("allCategories")
+      console.log("AllDoctor")
       console.log(data)
     }
     });
   }
-  deleteCategory(categoryId: number): void {
+  deletedoctor(categoryId: number): void {
     this._doctorservice.Deletedocbyid(categoryId).subscribe(
       {next:(data)=>{
         this._route.navigateByUrl(`/Doctor`);},

@@ -14,14 +14,14 @@ export class DoctorService {
   }
 
 getAllDoctors(): Observable<any> {
-  // const params = new HttpParams()
+
   return this.httpClient.get<any>(`${this.apiUrl}/Doctor`);
 }
-Deletedocbyid(id: number): Observable<Doctor> {
-  return this.httpClient.delete<Doctor>(`${this.apiUrl}/Doctor/delete/${id}`);
+Deletedocbyid(id: number): Observable<Doctor[]> {
+  return this.httpClient.delete<Doctor[]>(`${this.apiUrl}/Doctor/delete/${id}`);
 }
 Getone(id: number): Observable<Doctor> {
-  return this.httpClient.get<Doctor>(`${this.apiUrl}/Doctor/delete/${id}`);
+  return this.httpClient.get<Doctor>(`${this.apiUrl}/Doctor/${id}`);
 }
 
 }
