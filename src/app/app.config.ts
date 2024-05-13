@@ -6,8 +6,10 @@ import { HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@ang
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient(withFetch()),importProvidersFrom(HttpClientModule)],
+  providers: [provideRouter(routes),provideHttpClient(withFetch()),importProvidersFrom(HttpClientModule),importProvidersFrom()],
  
 
 
 };
+
+

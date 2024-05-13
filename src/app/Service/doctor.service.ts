@@ -9,7 +9,7 @@ import { Doctor } from '../models/doctor';
   providedIn: 'root'
 })
 export class DoctorService {
-  private apiUrl = environment.apiUrl;
+  private apiUrl = environment.baseUrl;
   constructor(private httpClient: HttpClient) { 
   }
 

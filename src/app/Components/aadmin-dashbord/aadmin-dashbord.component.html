@@ -71,10 +71,32 @@
                                 
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                
-                                     <a class="nav-link collapsed" [routerLink]="['/dashbord/allpatients']" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">See All Patients</a>
-
+                                <a class="nav-link collapsed" [routerLink]="['/dashbord/allpatients']" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">See All Patients</a>
+                         
                                 </nav>
                             </div>
+                           
+                            
+                        <ng-container *ngIf="(hasUserRole | async)">
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts3">
+                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                            Roles
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="/addrole">Add New Role</a>
+                                <a class="nav-link" href="/register">Add Admin</a>
+                            </nav>
+                            </div>
+                        </ng-container>
+  
+<!-- End add role -->
+
+<!-- End add role -->
+
+                         
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

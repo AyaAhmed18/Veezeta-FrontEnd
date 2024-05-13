@@ -5,7 +5,7 @@
     </div>
     <div class="card-body">
         <div class="datatable-wrapper datatable-loading no-footer sortable searchable fixed-columns"><div class="datatable-top">
-<div class="datatable-dropdown">
+<!-- <div class="datatable-dropdown">
 <label>
 <select class="datatable-selector"><option value="5">5</option>
     <option value="10" selected="">10</option>
@@ -14,7 +14,7 @@
     <option value="25">25</option>
 </select> entries per page
 </label>
-</div>
+</div> -->
 <div class="datatable-search">
 <input class="datatable-input" placeholder="Search..." type="search" title="Search within table" aria-controls="datatablesSimple">
 </div>
@@ -22,34 +22,36 @@
 <div class="datatable-container"><table id="datatablesSimple" class="datatable-table">
 <thead>
 <tr>
-<th data-sortable="true" style="width: 17.669172932330827%;"><a href="#" class="datatable-sorter">Img</a></th>
-<th data-sortable="true" style="width: 17.669172932330827%;"><a href="#" class="datatable-sorter">Id</a></th>
-<th data-sortable="true" style="width: 22.932330827067666%;"><a href="#" class="datatable-sorter">Name</a></th>
-<th data-sortable="true" style="width: 15.789473684210526%;"><a href="#" class="datatable-sorter">Phone number</a></th>
-<th data-sortable="true" style="width: 11.090225563909774%;"><a href="#" class="datatable-sorter">Email</a></th>
-<th data-sortable="true" style="width: 16.917293233082706%;"><a href="#" class="datatable-sorter">Title </a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Education</a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">speciallize</a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Fees</a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">country</a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Gender</a></th>
-<th data-sortable="true" style="width: 15.601503759398497%;"><a href="#" class="datatable-sorter">Remove</a></th>
+<th  style="width: 17.669172932330827%;">Img</th>
+<th  style="width: 17.669172932330827%;">Id</th>
+<th  style="width: 22.932330827067666%;">Name</th>
+<th  style="width: 15.789473684210526%;">Phone number</th>
+<th  style="width: 11.090225563909774%;">Email</th>
+<th  style="width: 16.917293233082706%;">Title</th>
+<th  style="width: 15.601503759398497%;">Education</th>
+<th  style="width: 15.601503759398497%;">speciallize</th>
+<th  style="width: 15.601503759398497%;">Fees</th>
+<th  style="width: 15.601503759398497%;">country</th>
+<th style="width: 15.601503759398497%;">Waiting time</th>
+<th style="width: 15.601503759398497%;">Background</th>
+<th  style="width: 15.601503759398497%;">Remove</th>
 </tr>
 </thead>
 <tbody>
     @for(pro of AllDoctor ;track pro.id;){
  <tr data-index="1">
-    <td>  <img [src]="pro.image"style="height: 200px; width:100%"> </td>
-    <td>{{pro.id}} </td>
-    <td>{{pro.username}} </td>
-    <td>{{pro.phonenumber}}</td>
-    <td>{{pro.email}}</td>
-    <td>{{pro.title}}</td>
-    <td>{{pro.education}}</td>
-    <td>{{pro.speciallize}}</td>
-    <td>{{pro.Fees}}</td>
-    <td>{{pro.country}}</td>
-    <td>{{pro.gender}}</td>
+     <td> <img [src]="pro.imageBase64" style="height: 200px; width:100%"> </td>
+    <td>{{ pro.id }}</td>
+    <td>{{ pro.username }}</td>
+    <td>{{ pro.phoneNumber }}</td>
+    <td>{{ pro.email }}</td>
+    <td>{{ pro.title }}</td>
+    <td>{{ pro.education }}</td>
+    <td>{{ pro.specialsation }}</td>
+    <td>{{ pro.fees }}</td>
+    <td>{{ pro.country }}</td>
+    <td>{{ pro.waitingTime }}</td>
+    <td>{{ pro.background }}</td>
        <!-- Button trigger modal -->
     <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
        Delete
@@ -63,7 +65,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <!-- <span aria-hidden="true">&times;</span> -->
           </button>
         </div>
         <div class="modal-body">
@@ -71,64 +73,17 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" (click)="deletedoctor(pro)"> Delete </button>
+          <button type="button" class="btn btn-primary" (click)="deletedoctor(pro.id)"> Delete </button>
         </div>
       </div>
     </div>
   </div>
 }
-    <!-- <tr data-index="51">
-        <td>Hermione Butler</td>
-        <td>Regional Director</td>
-        <td>London</td>
-        <td>47</td>
-        <td>2011/03/21</td>
-        <td>$356,250</td>
-    </tr> -->
-
-    <!-- <tr data-index="52">
-        <td>Lael Greer</td>
-        <td>Systems Administrator</td>
-        <td>London</td>
-        <td>21</td>
-        <td>2009/02/27</td>
-        <td>$103,500</td>
-    </tr>
-    <tr data-index="53">
-        <td>Jonas Alexander</td>
-        <td>Developer</td>
-        <td>San Francisco</td>
-        <td>30</td>
-        <td>2010/07/14</td>
-        <td>$86,500</td>
-    </tr>
-    <tr data-index="54">
-        <td>Shad Decker</td>
-        <td>Regional Director</td>
-        <td>Edinburgh</td>
-        <td>51</td>
-        <td>2008/11/13</td>
-        <td>$183,000</td>
-    </tr>
-    <tr data-index="55">
-        <td>Michael Bruce</td>
-        <td>Javascript Developer</td>
-        <td>Singapore</td>
-        <td>29</td>
-        <td>2011/06/27</td>
-        <td>$183,000</td>
-    </tr><tr data-index="56">
-        <td>Donna Snider</td>
-        <td>Customer Support</td>
-        <td>New York</td>
-        <td>27</td>
-        <td>2011/01/25</td>
-        <td>$112,000</td>
-    </tr> -->
+   
 </tbody>
 </table>
 </div>
-<div class="datatable-bottom">
+<!-- <div class="datatable-bottom">
 <div class="datatable-info">Showing 1 to {{AllDoctor.length}} of {{AllDoctor.length}} entries</div>
 <nav class="datatable-pagination">
     <ul class="datatable-pagination-list">
@@ -142,6 +97,6 @@
         <li class="datatable-pagination-list-item datatable-hidden datatable-disabled"><a data-page="6" class="datatable-pagination-list-item-link">›</a></li>
     </ul>
 </nav>
-</div></div>
+</div></div> -->
     </div>
 </div>
