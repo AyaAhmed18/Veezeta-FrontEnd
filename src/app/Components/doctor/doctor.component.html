@@ -39,7 +39,7 @@
 <tbody>
     @for(pro of AllDoctor ;track pro.id;){
  <tr data-index="1">
-    <td>  <img [src]="pro.image[0]"style="height: 200px; width:100%"> </td>
+    <td>  <img [src]="pro.image"style="height: 200px; width:100%"> </td>
     <td>{{pro.id}} </td>
     <td>{{pro.username}} </td>
     <td>{{pro.phonenumber}}</td>
@@ -129,7 +129,7 @@
 </table>
 </div>
 <div class="datatable-bottom">
-<div class="datatable-info">Showing 51 to 57 of 57 entries</div>
+<div class="datatable-info">Showing 1 to {{AllDoctor.length}} of {{AllDoctor.length}} entries</div>
 <nav class="datatable-pagination">
     <ul class="datatable-pagination-list">
         <li class="datatable-pagination-list-item"><a data-page="5" class="datatable-pagination-list-item-link">‹</a></li>

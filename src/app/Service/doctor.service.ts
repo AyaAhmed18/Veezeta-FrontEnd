@@ -9,16 +9,19 @@ import { Doctor } from '../models/doctor';
   providedIn: 'root'
 })
 export class DoctorService {
-  private apiUrl = environment.baseUrl;
+  private apiUrl = environment.apiUrl;
   constructor(private httpClient: HttpClient) { 
   }
 
-getAllDoctors(): Observable<any> {
-
-  return this.httpClient.get<any>(`${this.apiUrl}/Doctor`);
+getAllDoctors( pageSize:number,pageNumber:number): Observable<Doctor[]> {
+  const params = new HttpParams()
+  .set('pageSize', pageSize.toString())
+  .set('pageNumber', pageNumber.toString());
+   return this.httpClient.get<Doctor[]>( 'http://localhost:5163/api/Doctor/GetAllDoc',{ params });    
+    
 }
-Deletedocbyid(id: number): Observable<Doctor[]> {
-  return this.httpClient.delete<Doctor[]>(`${this.apiUrl}/Doctor/delete/${id}`);
+Deletedocbyid(id: number): void {
+ this.httpClient.delete<Doctor>(`${this.apiUrl}/Doctor/${id}`);
 }
 Getone(id: number): Observable<Doctor> {
   return this.httpClient.get<Doctor>(`${this.apiUrl}/Doctor/${id}`);

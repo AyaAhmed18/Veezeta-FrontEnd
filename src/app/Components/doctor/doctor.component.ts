@@ -17,7 +17,9 @@ export class DoctorComponent  implements OnInit{
   AllDoctor: any[]=[];
  pageSize:number = 10;
 Alldoc:number=0;
-
+pageNumber: number = 1;
+totalPages: number = 0;
+pageNumbers: number[]=[];
   ngOnInit(): void {
     this.getAllDoctors();
   }
@@ -26,23 +28,23 @@ Alldoc:number=0;
 
   }
 
+  
   getAllDoctors()  {
-    this._doctorservice.getAllDoctors()
+    this._doctorservice.getAllDoctors(this.pageSize,this.pageNumber)
     .subscribe({ next: (data) => {
       this.AllDoctor = data;
+     // this.Alldoc = data.count;
+      this.totalPages=Math.ceil( this.Alldoc / this.pageSize)
+      this.pageNumbers = Array.from({ length: this.totalPages }, (_, index) => index + 1);
       console.log("AllDoctor")
-      console.log(data)
+      console.log(this.AllDoctor)
     }
     });
-  }
-  deletedoctor(categoryId: number): void {
-    this._doctorservice.Deletedocbyid(categoryId).subscribe(
-      {next:(data)=>{
-        this._route.navigateByUrl(`/Doctor`);},
-        error: (err) => {
-          console.error('Failed to delete Doctor:', err);
-      } });
-  
+  }  
+
+  deletedoctor(docid: number): void {
+      this._doctorservice.Deletedocbyid(docid);
+      this._route.navigateByUrl(`/Doctor/${docid}`);
     }
 
   GetdoctorByCatId(docId: number):void
