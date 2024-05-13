@@ -6,6 +6,8 @@ import { LoginformComponent } from './Components/loginform/loginform.component';
 import { AadminDashbordComponent } from './Components/aadmin-dashbord/aadmin-dashbord.component';
 import { AllpatientsComponent } from './Components/allpatients/allpatients.component';
 import { DashbordmainComponent } from './Components/dashbordmain/dashbordmain.component';
+import { RegisterComponent } from './Components/register/register.component';
+import { AddRoleComponent } from './Components/add-role/add-role.component';
 
 export const routes: Routes = [
     {
@@ -23,5 +25,8 @@ export const routes: Routes = [
             { path: 'allpatients', component: AllpatientsComponent },
         ],
     },
+   
+    { path: 'register', component:  RegisterComponent },
+    { path: 'addrole', component:  AddRoleComponent },
     { path: '**', component: NotFoundComponent }
 ];
