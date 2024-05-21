@@ -9,6 +9,7 @@ import { DashbordmainComponent } from './Components/dashbordmain/dashbordmain.co
 import { DoctorComponent } from './Components/doctor/doctor.component';
 import { RegisterComponent } from './Components/register/register.component';
 import { AddRoleComponent } from './Components/add-role/add-role.component';
+import { ChartsComponent } from './Components/charts/charts.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +26,8 @@ export const routes: Routes = [
             { path: 'main', component: DashbordmainComponent },
             { path: 'allpatients', component: AllpatientsComponent },
             { path: 'Doctor', component: DoctorComponent },
+            { path: 'chart', component: ChartsComponent },
+
         ],
     },
    
