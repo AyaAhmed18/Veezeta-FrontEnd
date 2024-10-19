@@ -1,0 +1,59 @@
+<div class="PaddingContent">
+    <!-- search -->
+   
+      <p-iconField iconPosition="left" class="ml-auto" class="searchparent">
+        <p-inputIcon>
+          <i class="pi pi-search"></i>
+        </p-inputIcon> 
+        <input class="search"
+            pInputText 
+            type="text" 
+            (input)="onSearch($event)" 
+            placeholder="Search by doctor name" />
+      </p-iconField>
+      
+  <!-- table-->
+  <div class="card">
+    <p-table   #dt2 [value]="alldoctors" [tableStyle]="{'min-width': '60rem'}">
+  
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <div style=" color: #245cd4;  font-family: 'Pacifico', sans-serif;">
+                  In total there are {{alldoctors ? alldoctors.length : 0 }} Doctor''.
+                </div>
+               <!-- creat button -->
+                <!-- <div >
+                  <p-button  class="pop" (onClick)="createCategoryComponent.showDialog()" label="Create New Category"></p-button>
+                  <app-create-category #createCategoryComponent (categoryCreated)="onCategoryCreated($event)"></app-create-category>
+                </div> -->
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr >
+                <th>No.</th>
+                <th>Name</th>
+                <th >Image</th>
+                <th >Descreption</th>
+                <th>Status</th>
+                <th>Actions</th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category let-i="rowIndex">
+            <tr >
+                <td>{{ i + 1 }}</td>
+                <td>{{category.name}}</td>
+              
+                <td class="des">{{category.description}}</td>
+                <td>
+                  <!-- <i class="pi pi-pen-to-square edit" (click)="openEditDialog(category)"></i> -->
+                  <!-- <i class="delet pi pi-trash" (click)="confirm2($event, category)"></i> -->
+    
+               </td>
+              </tr>
+              
+        </ng-template>
+    </p-table>
+  </div>
+  
+  </div>

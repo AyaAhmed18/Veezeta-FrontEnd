@@ -1,0 +1,39 @@
+.PaddingContent
+{
+  padding-top: 1rem !important;
+  color: blue;
+  /* background-color: aqua; */
+  width: 100%;
+}
+* {
+  color: black;
+}
+.searchparent
+{
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+ 
+}
+.search
+{
+  width: 30rem;
+  border: 2rem  ;
+  margin-bottom: 2rem;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid rgb(0, 112, 205);;
+}
+.total 
+{
+  color:  rgb(231, 140, 12);;
+  border: none; 
+  color: white; 
+}
+:host ::ng-deep button.p-ripple.p-element.p-button.p-component 
+{
+background-color:  rgb(231, 140, 12) ;
+border-color: aliceblue;
+}
+.th
+{
+  text-align: center;
+}

@@ -1,0 +1,33 @@
+
+<!-- <p-dialog 
+     header="Create New appointement" 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [style]="{ width: '50rem' }" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+    [maximizable]="true"
+    contentStyle="margin-bottom: 20px;"> 
+      
+     <div class="img-box" style="margin-bottom: 0.7rem;"
+            [class.with-gradient]="!1" 
+            [ngStyle]="{'background-image': 1 ? 'none' : 'url(https://i.pinimg.com/474x/e7/17/66/e7176605bdddf85fc5174aebea140ce0.jpg)'}">  
+            
+     </div>
+     
+
+</p-dialog> -->
+<p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    <span class="p-text-secondary block mb-5">Update your information.</span>
+    <div class="flex align-items-center gap-3 mb-3">
+        <label for="username" class="font-semibold w-6rem">Username</label>
+        <input pInputText id="username" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex align-items-center gap-3 mb-5">
+        <label for="email" class="font-semibold w-6rem">Email</label>
+        <input pInputText id="email" class="flex-auto" autocomplete="off" />
+    </div>
+    <div class="flex justify-content-end gap-2">
+        <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
+        <p-button label="Save" (onClick)="visible = false" />
+    </div>
+</p-dialog>

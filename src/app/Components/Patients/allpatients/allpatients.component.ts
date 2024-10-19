@@ -1,14 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import{IPatients} from '../../models/IPatients'
+import { Component, OnInit ,ViewChild} from '@angular/core';
+import{IPatients} from '../../../models/IPatients'
 import { ActivatedRoute, Router } from '@angular/router';
-import { PatientService } from '../../Service/patient.service';
+import { PatientService } from '../../../Service/patient.service';
 import { CommonModule } from '@angular/common';
-
-
+import { CalendarModule } from 'primeng/calendar';
+import { FormsModule } from '@angular/forms';
+import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
+import { RatingModule } from 'primeng/rating';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { PrimeIcons, MenuItem } from 'primeng/api';
+import { Table } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputIconModule } from 'primeng/inputicon';
+import { IconFieldModule } from 'primeng/iconfield';
 @Component({
   selector: 'app-allpatients',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule, CalendarModule, TableModule, TagModule, RatingModule, 
+             InputTextModule, IconFieldModule,InputIconModule],
+  providers: [ConfirmationService, MessageService,PrimeIcons,IconFieldModule],
   templateUrl: './allpatients.component.html',
   styleUrl: './allpatients.component.css'
 })
@@ -18,8 +29,12 @@ export class AllpatientsComponent implements OnInit{
   totalPatients: number =100; 
   allpatients: any = { entities: [] }; 
   paginatedPatients: IPatients[] = [];
+  date: Date | undefined;
+  color: string | undefined;
+  @ViewChild('dt2')
+  dt2!: Table;
   constructor(private router: Router,private route: ActivatedRoute,
-   private _patientService: PatientService
+   private _patientService: PatientService,private confirmationService: ConfirmationService, private messageService: MessageService
    ) {}
 
 
@@ -37,11 +52,52 @@ export class AllpatientsComponent implements OnInit{
         console.error('Error fetching PATIENTS:', error);
       }
     });
-
-
   }
-
- 
+  onSearch(event: any) 
+  {
+  
+    const query = event.target.value.toLowerCase();
+    if (this.dt2) {
+      this.dt2.filter(query, 'name', 'contains');
+    }
+  }
+  confirm2(event: Event, category: any) {
+    this.confirmationService.confirm({
+      target: event.target as EventTarget,
+      message: `Do you want to delete the category "${category.name}"?`,
+      header: 'Delete Confirmation',
+      icon: 'pi pi-info-circle',
+      acceptButtonStyleClass: "p-button-danger p-button-text",
+      rejectButtonStyleClass: "p-button-text p-button-text",
+      acceptIcon: "none",
+      rejectIcon: "none",
+  
+      // accept: () => {
+      //   this._patientService.deleteCategory(category.id).subscribe({
+      //     next: (response: IPatients) => {
+            
+      //       this.allpatients = this.allpatients.filter(cat => cat.id !== category.id);
+      //       this.messageService.add({
+      //         severity: 'info',
+      //         summary: 'Confirmed',
+      //         detail: 'Category deleted'
+      //       });
+      //     },
+      //     error: (error: any) => {
+      //       console.error('Error deleting category:', error);
+      //       this.messageService.add({
+      //         severity: 'error',
+      //         summary: 'Error',
+      //         detail: 'Error deleting category.'
+      //       });
+      //     }
+      //   });
+      // },
+      reject: () => {
+        this.messageService.add({ severity: 'error', summary: 'Rejected', detail: 'Deletion cancelled' });
+      }
+    });
+  }
   
 
 
