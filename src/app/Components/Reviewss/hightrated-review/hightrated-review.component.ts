@@ -1,3 +1,4 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,7 @@ import { ReviewService } from '../../../Service/review.service';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 
 @Component({
-  selector: 'app-reviews',
+  selector: 'app-hightrated-review',
   standalone: true,
   imports: [
     CommonModule,
@@ -19,10 +20,10 @@ import { ConfirmPopupModule } from 'primeng/confirmpopup';
     ConfirmDialogModule,
   ],
   providers: [ConfirmationService, ConfirmPopupModule, MessageService, PrimeIcons,],
-  templateUrl: './reviews.component.html',
-  styleUrl: './reviews.component.css'
+  templateUrl: './hightrated-review.component.html',
+  styleUrl: './hightrated-review.component.css'
 })
-export class ReviewsComponent   implements OnInit
+export class HightratedReviewComponent   implements OnInit
 {
   visible: boolean = false;
 
@@ -46,7 +47,7 @@ export class ReviewsComponent   implements OnInit
   }
   GetAllReviews() 
   {
-    this.reviewService.GetAllReviews(this.pageSize, this.pageNumber).subscribe(re => {
+    this.reviewService.GethightReviews(this.pageSize, this.pageNumber).subscribe(re => {
       this.allreviews = re.entities;
       this.totalRecords = re.count;
       console.log("all reviews:", this.allreviews);

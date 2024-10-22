@@ -1,21 +1,4 @@
-
-<!-- <p-dialog 
-     header="Create New appointement" 
-    [(visible)]="visible" 
-    [modal]="true" 
-    [style]="{ width: '50rem' }" 
-    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
-    [maximizable]="true"
-    contentStyle="margin-bottom: 20px;"> 
-      
-     <div class="img-box" style="margin-bottom: 0.7rem;"
-            [class.with-gradient]="!1" 
-            [ngStyle]="{'background-image': 1 ? 'none' : 'url(https://i.pinimg.com/474x/e7/17/66/e7176605bdddf85fc5174aebea140ce0.jpg)'}">  
-            
-     </div>
-     
-
-</p-dialog> -->
+<!-- 
 <p-dialog header="Edit Profile" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
     <span class="p-text-secondary block mb-5">Update your information.</span>
     <div class="flex align-items-center gap-3 mb-3">
@@ -30,4 +13,74 @@
         <p-button label="Cancel" severity="secondary" (onClick)="visible = false" />
         <p-button label="Save" (onClick)="visible = false" />
     </div>
-</p-dialog>
+</p-dialog> -->
+<!-- <p-dialog header="Create New Appointment" [(visible)]="visible" [modal]="true" [style]="{ width: '50rem' }">
+    <form [formGroup]="createForm">
+      <div class="p-fluid">
+        <div class="p-field">
+          <label for="doctorName">Doctor Name</label>
+          <input id="doctorName" type="text" pInputText formControlName="doctorName" />
+          <div *ngIf="createForm.get('doctorName')?.invalid && createForm.get('doctorName')?.touched" class="p-error">Doctor Name is required</div>
+        </div>
+        <div class="p-field">
+          <label for="patientName">Patient Name</label>
+          <input id="patientName" type="text" pInputText formControlName="patientName" />
+          <div *ngIf="createForm.get('patientName')?.invalid && createForm.get('patientName')?.touched" class="p-error">Patient Name is required</div>
+        </div>
+        <div class="p-field">
+          <label for="time">Appointment Time</label>
+          <input id="time" type="datetime-local" pInputText formControlName="time" />
+          <div *ngIf="createForm.get('time')?.invalid && createForm.get('time')?.touched" class="p-error">Time is required</div>
+        </div>
+        <div class="p-field-checkbox">
+          <label>Status</label>
+          <p-checkbox formControlName="status" binary="true" label="Completed"></p-checkbox>
+        </div>
+        <div class="p-field">
+          <label for="payment">Payment</label>
+          <input id="payment" type="text" pInputText formControlName="payment" />
+        </div>
+      </div>
+    </form>
+    
+    <div class="p-dialog-footer">
+      <p-button label="Cancel" icon="pi pi-times" (onClick)="hideDialog()"></p-button>
+      <p-button label="Save" icon="pi pi-check" (onClick)="saveAppointment()" [disabled]="createForm.invalid"></p-button>
+    </div>
+  </p-dialog>
+   -->
+
+   <p-dialog header="Create New Appointment" [(visible)]="visible" [modal]="true" [style]="{ width: '50rem' }" [maximizable]="true">
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()">
+      <div class="p-field">
+        <label for="doctorName">Doctor Name</label>
+        <input id="doctorName" type="text" pInputText formControlName="doctorName" />
+      </div>
+      
+      <div class="p-field">
+        <label for="patientName">Patient Name</label>
+        <input id="patientName" type="text" pInputText formControlName="patientName" />
+      </div>
+  
+      <div class="p-field">
+        <label for="time">Time</label>
+        <input id="time" type="text" pInputText formControlName="time" />
+      </div>
+  
+      <div class="p-field">
+        <label for="status">Status</label>
+        <input id="status" type="checkbox" pInputText formControlName="status" />
+      </div>
+  
+      <div class="p-field">
+        <label for="payment">Payment</label>
+        <input id="payment" type="text" pInputText formControlName="payment" />
+      </div>
+  
+      <div class="p-dialog-footer">
+        <p-button label="Cancel" (click)="hideDialog()"></p-button>
+        <p-button label="Save" type="submit"></p-button>
+      </div>
+    </form>
+  </p-dialog>
+  

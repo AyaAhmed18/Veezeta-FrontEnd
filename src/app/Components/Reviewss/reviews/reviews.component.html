@@ -1,59 +1,77 @@
-<div class="PaddingContent">
-    <!-- search -->
-   
-      <p-iconField iconPosition="left" class="ml-auto" class="searchparent">
-        <p-inputIcon>
-          <i class="pi pi-search"></i>
-        </p-inputIcon> 
-        <input class="search"
-            pInputText 
-            type="text" 
-            (input)="onSearch($event)" 
-            placeholder="Search by review name" />
-      </p-iconField>
-      
-  <!-- table-->
-  <div class="card">
-    <p-table   #dt2 [value]="allreviews" [tableStyle]="{'min-width': '60rem'}">
-  
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-                <div style=" color: #245cd4;  font-family: 'Pacifico', sans-serif;">
-                  In total there are {{allreviews ? allreviews.length : 0 }} Review''.
-                </div>
-               <!-- creat button -->
-                <!-- <div >
-                  <p-button  class="pop" (onClick)="createCategoryComponent.showDialog()" label="Create New Category"></p-button>
-                  <app-create-category #createCategoryComponent (categoryCreated)="onCategoryCreated($event)"></app-create-category>
-                </div> -->
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr >
-                <th>No.</th>
-                <th>Name</th>
-                <th >Image</th>
-                <th >Descreption</th>
-                <th>Status</th>
-                <th>Actions</th>
-                
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-category let-i="rowIndex">
-            <tr >
-                <td>{{ i + 1 }}</td>
-                <td>{{category.name}}</td>
-              
-                <td class="des">{{category.description}}</td>
-                <td>
-                  <!-- <i class="pi pi-pen-to-square edit" (click)="openEditDialog(category)"></i> -->
-                  <!-- <i class="delet pi pi-trash" (click)="confirm2($event, category)"></i> -->
+<!-- <p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog> -->
+
+<div class="PaddingContent" style="margin-left: 100px;">
+  <!-- search -->
+
+      <p-iconField iconPosition="left" class="ml-auto searchparent">
+      <p-inputIcon>
+        <i class="pi pi-search"></i>
+      </p-inputIcon> 
+      <input class="search"
+          pInputText 
+          type="text" 
+          (input)="onSearch($event)" 
+          placeholder="Search by doctor name" />
+    </p-iconField>
     
-               </td>
-              </tr>
-              
-        </ng-template>
-    </p-table>
+<!-- table-->
+<div class="card" >
+  <p-table 
+      #dt2 
+      [value]="allreviews" 
+      [tableStyle]="{'min-width': '70rem'}"
+      
+  >
+
+<ng-template pTemplate="caption">
+  <div class="flex-container">
+    <div class="left-content">
+      In total there are {{ allreviews ? allreviews.length : 0 }} review.
+    </div>
+    <!-- <div class="right-content">
+      <p-button class="pop" (onClick)="CreatAppointementComponent.showDialog()" label="Create New Appointment"></p-button>
+      <app-creat-appointement #CreatAppointementComponent (appointementCreated)="onappointementCreated($event)"></app-creat-appointement>
+    </div> -->
   </div>
-  
-  </div>
+</ng-template>
+
+<ng-template pTemplate="header">
+  <tr>
+    <th>No.</th>
+    <th>doctorName</th>
+    <th>patientName</th>
+    <th>rating</th>
+    <th>comment</th>
+    <th>Actions</th>
+  </tr>
+</ng-template>
+
+<ng-template pTemplate="body" let-allreviews let-i="rowIndex">
+  <tr>
+    <td>{{  i + 1 }}</td>
+    <td>{{allreviews.doctorName}}</td>
+    <td>{{allreviews.patientName}}</td>
+    <td>{{allreviews.rateing}}</td>
+    <td>{{allreviews.comment}}</td>
+    <td>
+       <i class="delet pi pi-trash" (click)="confirm2($event, allreviews)"></i>  
+    </td>
+  </tr>
+</ng-template>
+</p-table>
+
+  <p-paginator 
+  [rows]="pageSize" 
+  [totalRecords]="4" 
+  [rowsPerPageOptions]="[3, 5, 10]"
+  [showCurrentPageReport]="true" 
+  (onPageChange)="onPageChange($event)">
+  </p-paginator>
+  <!-- currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" -->
+</div>
+
+<p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog>
+
+</div>

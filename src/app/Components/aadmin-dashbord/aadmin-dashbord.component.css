@@ -177,7 +177,7 @@ main.content-area {
   width: calc(90%  250px);
 }
 .full-width {
-  width: 90%;
+  width: 99%;
   padding: 2px !important;
 }
 
