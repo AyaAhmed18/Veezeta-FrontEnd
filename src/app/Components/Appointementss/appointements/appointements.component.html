@@ -27,7 +27,7 @@
   <ng-template pTemplate="caption">
     <div class="flex-container">
       <div class="left-content">
-        In total there are {{ allappontiement ? allappontiement.length : 0 }} Appointments.
+        In total there are {{  totalRecords }} Appointments.
       </div>
       <div class="right-content">
         <p-button class="pop" (onClick)="CreatAppointementComponent.showDialog()" label="Create New Appointment"></p-button>

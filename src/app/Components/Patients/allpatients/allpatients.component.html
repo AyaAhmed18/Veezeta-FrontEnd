@@ -1,48 +1,10 @@
+<!-- <p-toast></p-toast>
+<p-confirmDialog></p-confirmDialog> -->
 
-<!-- <div class="PaddingContent">
-    <div class="card">
-        <p-table [value]="allpatients" [tableStyle]="{'min-width': '50rem'}">
-            <ng-template pTemplate="header" let-columns>
-                <tr>
-                    <th>Name </th>
-                    <th>Price</th>
-                    <th>Category</th>
-                    <th>Quantity</th>
-                    <th>Status</th>
-                    <th>Reviews</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-product let-columns="columns">
-                <tr>
-                    <td>
-                        {{product.name}}
-                    </td>
-                    <td>
-                        {{product.price | currency:'USD'}}
-                    </td>
-                    <td>
-                        {{product.category}}
-                    </td>
-                    <td>
-                        {{product.quantity}}
-                    </td>
-                    <td>
-                        
-                    </td>
-                    <td>
-                        <p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false" />
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
-</div> -->
-
-
-<div class="PaddingContent">
+<div class="PaddingContent" style="margin-left: 100px;">
     <!-- search -->
-   
-      <p-iconField iconPosition="left" class="ml-auto" class="searchparent">
+  
+        <p-iconField iconPosition="left" class="ml-auto searchparent">
         <p-inputIcon>
           <i class="pi pi-search"></i>
         </p-inputIcon> 
@@ -50,51 +12,74 @@
             pInputText 
             type="text" 
             (input)="onSearch($event)" 
-            placeholder="Search by patient name" />
+            placeholder="Search by doctor name" />
       </p-iconField>
       
   <!-- table-->
-  <div class="card">
-    <p-table   #dt2 [value]="allpatients" [tableStyle]="{'min-width': '60rem'}">
+  <div class="card" >
+    <p-table 
+        #dt2 
+        [value]="allPatients" 
+        [tableStyle]="{'min-width': '70rem'}"
+        
+    >
   
-        <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-                <div style=" color: #245cd4;  font-family: 'Pacifico', sans-serif;">
-                  In total there are {{allpatients ? allpatients.length : 0 }} patient'''.
-                </div>
-               <!-- creat button -->
-                <!-- <div >
-                  <p-button  class="pop" (onClick)="createCategoryComponent.showDialog()" label="Create New Category"></p-button>
-                  <app-create-category #createCategoryComponent (categoryCreated)="onCategoryCreated($event)"></app-create-category>
-                </div> -->
-            </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-            <tr >
-                <th>No.</th>
-                <th>Name</th>
-                <th >Image</th>
-                <th >Descreption</th>
-                <th>Status</th>
-                <th>Actions</th>
-                
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-category let-i="rowIndex">
-            <tr >
-                <td>{{ i + 1 }}</td>
-                <td>{{category.name}}</td>
-              
-                <td class="des">{{category.description}}</td>
-                <td>
-                  <!-- <i class="pi pi-pen-to-square edit" (click)="openEditDialog(category)"></i> -->
-                  <i class="delet pi pi-trash" (click)="confirm2($event, category)"></i>
-    
-               </td>
-              </tr>
-              
-        </ng-template>
-    </p-table>
+  <ng-template pTemplate="caption">
+    <div class="flex-container">
+      <div class="left-content">
+        In total there are {{totalRecords }} Patients.
+      </div>
+      <!-- <div class="right-content">
+        <p-button class="pop" (onClick)="CreatAppointementComponent.showDialog()" label="Create New Appointment"></p-button>
+        <app-creat-appointement #CreatAppointementComponent (appointementCreated)="onappointementCreated($event)"></app-creat-appointement>
+      </div> -->
+    </div>
+  </ng-template>
+  
+  <ng-template pTemplate="header">
+    <tr>
+      <th>No.</th>
+      <th>PatientName</th>
+      <th>Insurance</th>
+      <th>Adress</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>BirthDate</th>
+      <th>Gender</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  
+  <ng-template pTemplate="body" let-allPatients let-i="rowIndex">
+    <tr>
+      <td>{{  i + 1 }}</td>
+      <td>{{allPatients.userName}}</td>
+      <td>{{allPatients.insurance}}</td>
+      <td>{{allPatients.adress}}</td>
+      <td>{{allPatients.phone}}</td>
+      <td>{{allPatients.email}}</td>
+      <td>{{allPatients.birthDate}}</td>
+      <td>{{allPatients.gender}}</td>
+      <td>
+         <i class="delet pi pi-trash" (click)="confirm1($event, allPatients)"></i>   
+         <i class="delet pi   pi-ban" (click)="confirm2($event, allPatients)" style="color: black;margin-left: 0.3rem;"></i>   
+       
+      </td>
+    </tr>
+  </ng-template>
+  </p-table>
+  
+    <p-paginator 
+    [rows]="pageSize" 
+    [totalRecords]="totalRecords" 
+    [rowsPerPageOptions]="[3, 5, 10]"
+    [showCurrentPageReport]="true" 
+    (onPageChange)="onPageChange($event)">
+    </p-paginator>
+    <!-- currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" -->
   </div>
+  
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
   
   </div>

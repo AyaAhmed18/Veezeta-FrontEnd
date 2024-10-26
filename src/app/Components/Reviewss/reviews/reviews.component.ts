@@ -88,10 +88,9 @@ export class ReviewsComponent   implements OnInit
             this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'review deleted' });
           },
           error: (error: any) => {
-           // علشان مفيش مسح مباشر ف بيدي ايررو ف خليت هنا انخ يدي انه تم المسح لحد منعمل سجنل ار انشاء الله
-            this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'review deleted' });
-            // console.error('Error deleting appointment:', error);
-            // this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error deleting review.' });
+           
+             console.error('Error deleting appointment:', error);
+             this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Error deleting review.' });
           }
         });
       },
