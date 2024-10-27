@@ -23,8 +23,10 @@ export const routes: Routes = [
     //         { path: 'loginform', component: LoginformComponent },
     //     ],
     // },
-    { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
-
+   // { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
+   // { path: 'loginform', component: LoginformComponent },
+   { path: '', redirectTo: 'loginform', pathMatch: 'full' },
+   { path: 'loginform', component: LoginformComponent },
     { path: 'dashbord', component: AadminDashbordComponent,
         children: [
             { path: '', pathMatch: 'full', redirectTo: 'main' },

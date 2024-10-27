@@ -15,25 +15,28 @@ export class LoginformComponent
 
   constructor(private router: Router,private route: ActivatedRoute,private authService: AuthService ) {}
 
-  userName: string | undefined; 
+  email: string | undefined; 
   password: string | undefined;
-  errorMessage: string | undefined;
-  roleName: string | undefined;
-
+  errorMessage: string | null = null; 
+  takedata:string | null = null; 
+  userName:string |undefined
 
   onSubmit(): void {
-    if (this.userName && this.password) {
-      this.authService.login({userName: this.userName, password: this.password }).subscribe({
+    this.errorMessage = null;
+    if (this.email && this.password) {
+      this.authService.login({email: this.email, password: this.password }).subscribe({
         next: (data) => {
           console.log('Login successful', data);
-          localStorage.setItem('token', data.token); 
-          this.roleName = data.role;
-          console.log('userRole', this.roleName);
+          localStorage.setItem('token', data.token);
           this.router.navigate(['/dashbord']);
+          if (data.status === 200) {
+            console.log(data.body);
+          }
         },
         error: (error) => {
           console.error('Login failed', error);
           this.errorMessage = 'Invalid login attempt. Please try again.';
+         // this.errorMessage = error.error;
         }
       });
     }
