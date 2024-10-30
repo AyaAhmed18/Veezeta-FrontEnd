@@ -12,6 +12,7 @@ import { AppointementsComponent } from './Components/Appointementss/appointement
 import { DoctorsComponent } from '../app/Components/Doctorss/doctors/doctors.component';
 import { ReviewsComponent } from './Components/Reviewss/reviews/reviews.component';
 import { AllBookingComponent } from './Components/Bookings/all-booking/all-booking.component';
+import { HightratedReviewComponent } from './Components/Reviewss/hightrated-review/hightrated-review.component';
 
 export const routes: Routes = [
     // {
@@ -22,8 +23,10 @@ export const routes: Routes = [
     //         { path: 'loginform', component: LoginformComponent },
     //     ],
     // },
-    { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
-
+   // { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
+   // { path: 'loginform', component: LoginformComponent },
+   { path: '', redirectTo: 'loginform', pathMatch: 'full' },
+   { path: 'loginform', component: LoginformComponent },
     { path: 'dashbord', component: AadminDashbordComponent,
         children: [
             { path: '', pathMatch: 'full', redirectTo: 'main' },
@@ -32,6 +35,7 @@ export const routes: Routes = [
             { path: 'allapp', component: AppointementsComponent },
             { path: 'allDoc', component: DoctorsComponent },
             { path: 'allrev', component: ReviewsComponent },
+            { path: 'hightrev', component: HightratedReviewComponent },
             { path: 'allbooks', component: AllBookingComponent },
         ],
     },

@@ -69,4 +69,4 @@ import { BadgeModule } from 'primeng/badge';
     BadgeModule
   ],
 })
-export class PrimeModule {}
+export class PrimeModule{}

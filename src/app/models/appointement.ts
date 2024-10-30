@@ -1,7 +1,12 @@
-export interface appointement {
-    id: number;
-    name:string[];
-    phoneNumber:number;
-    birthDate:any
-    gender:boolean
+export interface appointement 
+{
+    id:string
+    entities: appointement[];
+    time: string
+    status: boolean
+    doctorId: number
+    doctorName: string
+    patientId: number
+    patientName: string
+    payment:string
 }

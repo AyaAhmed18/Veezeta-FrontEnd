@@ -42,14 +42,14 @@ loggedInUser: any;
 
   login(credentials: Login): Observable<any> 
   {
-    return this.http.post(`http://localhost:5163/api/Account/login`, credentials).pipe(
+    return this.http.post(`http://localhost:5029/api/Admin/Login Admin`, credentials).pipe(
       map((response: any) => {
         if (response && response.token) {
           
           localStorage.setItem('jwtToken', response.token);
           localStorage.setItem('tokenExpiration', response.expiration);
-          localStorage.setItem('loggedInUser', credentials.userName); 
-          this.loggedInUser = credentials.userName; 
+          localStorage.setItem('loggedInUser', credentials.email); 
+          this.loggedInUser = credentials.email; 
           console.log(  "jjjjj",this.loggedInUser );
           this.isloggedstate.next(true);
         }

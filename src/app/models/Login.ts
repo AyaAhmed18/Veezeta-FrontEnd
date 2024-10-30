@@ -1,6 +1,9 @@
 export interface Login{
   id?: string;
-  userName: string;
-  password: string;
   rememberMe?: boolean;
+  message?: string
+  email: string
+  password: string
+  userId?: string
+  userName?:string
 }

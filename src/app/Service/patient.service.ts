@@ -1,32 +1,10 @@
-// import { Injectable } from '@angular/core';
-// import { HttpClient, HttpParams } from '@angular/common/http';
-// import { environment } from '../../environments/environment.development';
-// import { Observable } from 'rxjs';
-// import { IPatients } from '../models/IPatients';
-// import { AppComponent } from '../app.component';
-// import { HttpClientModule } from '@angular/common/http';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class PatientService {
-
-//   constructor(private httpclient:HttpClient) { }
-
-// getAllPatients(pageSize: number, pageNumber: number): Observable<IPatients[]> {
-//   let params = new HttpParams()
-//   .append('pageSize', pageSize.toString())
-//   .append('pageNumber', pageNumber.toString());
-
-//   return this.httpclient.get<IPatients[]>(`${environment.baseUrl}/Patient/GettAllPatients`, { params });
-// }
-  
-// }
+import { IPatients } from '../models/IPatients';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { appointement } from '../models/appointement';
 import { environment } from '../../environments/environment.development';
-import { Observable } from 'rxjs';
-import { IPatients } from '../models/IPatients';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -34,15 +12,21 @@ import { IPatients } from '../models/IPatients';
 export class PatientService {
 
   constructor(private httpclient:HttpClient) { }
-
   
-
-  getAllPatients(pageSize: number, pageNumber: number): Observable<IPatients[]> {
-    let params = new HttpParams()
-      .append('pageSize', pageSize.toString())
-      .append('pageNumber', pageNumber.toString());
-      return this.httpclient.get<IPatients[]>(`http://localhost:5163/api/Patient/GettAllPatients`, { params });    
-      // return this.httpclient.get<IPatients[]>(`${environment.baseUrl}/api/Patient/GettAllPatients`, { params });
-  
+  getAllPatients(pageSize: number, pageNumber: number): Observable<any> 
+  {
+    
+       return this.httpclient.get<any>(`${environment.baseUrl}/api/Patient/AllPatients/${pageSize}/${pageNumber}`);
   }
+   
+  deletepatient(id: string): Observable<any> 
+  {
+    return this.httpclient.delete<any>(`${environment.baseUrl}/api/Patient/${id}`);
+  }  
+
+  blockpatient(id: string): Observable<any>
+  {
+    return this.httpclient.delete<any>(`${environment.baseUrl}/api/Patient/Block/${id}`);
+  }
+
 }
