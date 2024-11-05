@@ -1,7 +1,18 @@
 <div class="PaddingContent">
-<!-- <div class="card">
-    <p-chart type="bar" [data]="basicData" [options]="basicOptions" />
-</div> -->
+
+ <!-- small box number of proudect-->
+ <div class="col-lg-3 col-6">
+  <div class="small-box  bg-info">
+      <div class="inner">
+          <h3 id="productCount"></h3> <!-- Display the product count  -->
+          <h4>"Total Products"</h4>
+      </div>
+      <div class="icon">
+          <i class="fas fa-shopping-cart"></i>
+      </div>
+      <a class="small-box-footer " asp-area="" asp-controller="Product" asp-action="Index">Show proudect <i class="fas fa-arrow-circle-right"></i></a>
+  </div>
+</div>
 
 <div class="row">
     <div class="col-sm-6">
@@ -15,5 +26,19 @@
         <p-chart class="pie" type="pie" [data]="data" [options]="options" />
       </div>
     </div>
+
+    
+    
+
+</div>
+
+<div class="row" style="margin-top: 1rem;">
+ 
+  <div class="col-sm-12">
+      <!-- <p-chart type="line" [data]="data3" [options]="options3" /> -->
+      <p-chart type="line" [data]="appointmentData" [options]="chartOptions"></p-chart>
+
   </div>
+
+</div>
 </div>
