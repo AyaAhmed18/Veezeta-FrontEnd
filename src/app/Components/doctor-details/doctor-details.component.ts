@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IDoctor } from '../../models/idoctor';
 
 @Component({
   selector: 'app-doctor-details',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './doctor-details.component.css'
 })
 export class DoctorDetailsComponent {
-
+doctor!:IDoctor
 }

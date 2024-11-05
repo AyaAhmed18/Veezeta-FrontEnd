@@ -22,9 +22,16 @@
                   In total there are {{DoctorsNumber ? DoctorsNumber : 0 }} Doctors''.
                 </div>
                <!-- creat button -->
-                <div >
-                  <p-button  class="pop" label="Doctors Need Approval"></p-button>
+                <!-- <div >
+                  <p-button  class="pop" routerLink="/dashbord/ApproveDoc"  label="Doctors Need Approval"></p-button>
                   
+                </div> -->
+
+
+                <div class="right-content">
+                  <p-button class="pop" (onClick)="ApproveDoctorComponent.showDialog()" label="Doctors Need Approval"></p-button>
+                  <app-approve-doctor #ApproveDoctorComponent ></app-approve-doctor>
+
                 </div>
             </div>
         </ng-template>
@@ -54,11 +61,12 @@
                 <td class="des">{{paginatedDoctor.genderR}}</td>
                 <td>{{paginatedDoctor.createdAt | date: 'short'}}</td>
                 <td class="des">{{paginatedDoctor.specialization}}</td>
-                <td>
-                  <!-- <i class="pi pi-pen-to-square edit" (click)="openEditDialog(category)"></i> -->
-                  <!-- <i class="delet pi pi-trash" (click)="confirm2($event, category)"></i> -->
-    
+                <td ><a href="/dashbord/DocDetails/{{paginatedDoctor.id}}" >  
+                 
+                  <i  style="color: chocolate; cursor: pointer;" class=" pi pi-eye"></i>   </a>
+
                </td>
+              
               </tr>
               
         </ng-template>

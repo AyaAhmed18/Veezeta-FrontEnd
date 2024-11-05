@@ -15,12 +15,14 @@ import { IDoctor } from '../../../models/idoctor';
 import { ToastModule } from 'primeng/toast';
 import { CalendarModule } from 'primeng/calendar';
 import { RatingModule } from 'primeng/rating';
+import { ApproveDoctorComponent } from '../../approve-doctor/approve-doctor.component';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-doctors',
   standalone: true,
   imports: [CommonModule, FormsModule, CalendarModule, TableModule, TagModule, RatingModule, 
-    InputTextModule, IconFieldModule,InputIconModule,ToastModule ],
-providers: [ConfirmationService, MessageService,PrimeIcons,IconFieldModule],
+    InputTextModule, IconFieldModule,InputIconModule,ToastModule,ApproveDoctorComponent ],
+providers: [ConfirmationService, MessageService,PrimeIcons,IconFieldModule,RouterLink],
   templateUrl: './doctors.component.html',
   styleUrl: './doctors.component.css'
 })
@@ -28,7 +30,7 @@ export class DoctorsComponent
 {
   @ViewChild('dt2') dt2!: Table;
   public pageNumber: number = 1;
-  public items: number =2;
+  public items: number =5;
   Doctors: IDoctor[]=[] ; 
   paginatedDoctor: IDoctor[] = [];
   //loading: boolean = false;
@@ -70,10 +72,25 @@ export class DoctorsComponent
     });
   }
 
-  onPageChange(event: any) {
-    this.pageNumber = event.page + 1; // PrimeNG pages start from 0
-    this.loadDoctors();
+  onappointementCreated(Doc: IDoctor) 
+  {
+  //   this.allappontiement.push(newapp); 
+  //   this.dt2?.reset(); 
+  //   this.messageService.add({ severity: 'success', summary: 'Appointment Created', detail: 'New appointment added successfully!' });
+  //
+   }
+
+  
+  onPageChange(event: any) 
+  {
+    console.log("paginator event:", event); 
+    this.pageNumber = event.page + 1;  
+    this.items = event.rows;  
+    console.log(" pageNumber:", this.pageNumber); 
+    console.log(" pageSize:", this.items); 
+    this.loadDoctors();  
   }
+  
   getSeverity(status: string) {
       switch (status) {
           case 'unqualified':

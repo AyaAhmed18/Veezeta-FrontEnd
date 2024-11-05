@@ -1,1 +1,188 @@
-<p>doctor-details works!</p>
+<div class="row " style="margin-left: 7rem; margin-right: 3rem; margin-top: 3rem;" >
+
+
+
+    <div class="card card-res-size col-8   my-4 ">
+  
+  
+      <div class="row card-body">
+  
+        <div class="img-focas col-3">
+          
+          <img [src]="( doctor.image)" alt="Product Image">
+          <!-- <img src="assets/ProductImg/1.jpg" style="height: 250px; width: auto;"> -->
+  
+          <div class="row my-2 ">
+            <div class="col-4">
+              <img class="detImg" [src]="( doctor.image)" alt="Product Image">
+            </div>
+            <div class="col-4">
+              <img class="detImg" [src]="( doctor.image)" alt="Product Image">
+            </div>
+            <div class="col-4">
+              <img class="detImg" [src]="( doctor.image)" alt="Product Image">
+            </div>
+          </div>
+          <div>
+  
+            <!-- <div *ngFor="let image of product?.images">
+                <img [src]="(image)" alt="Product Image" style="height: 35px; width: auto;">
+              </div> -->
+          </div>
+        </div>
+  
+  
+        <div class="col-9 card-res-size">
+          <div class="row">
+            <div class="col-12">
+              <p class="mb-1 h4">
+                <small>
+                Doctor
+                </small> 
+              </p>
+              <p> <small>
+                Doctor title
+                </small> </p>
+                <p> Brand: <small style="color: grey;">
+                 dooooooooooo
+                  </small> </p>
+              <hr>
+  
+            </div>
+  
+  
+            <div class="col-12 ">
+              <p> <strong class="h3 px-2">desc</strong>
+                <del class=" px-2 text-secondary ">dd</del>
+                <strong class="offer-cards p-1"> ddd</strong>
+              </p>
+            </div>
+            <div class="col-12 ">
+              <p>
+                <small class=" p-1"> 
+                  details.Shipping fees from EGP 20.00 to 6th of October (free delivery if order above EGP 200.00). Save 10 EGP on shipping with prepaid payment' | translate</small>
+              </p>
+  
+              <div class="stars">
+                <i class="fa fa-star "></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa fa-star-o"></i>
+                <i class="fa text-secondary">(44)</i>
+              </div>
+             
+              <div>
+                <h3>'details.VARIATION AVAILABLE' | translat</h3>
+                <br>
+                <span class="specs" *ngFor="let s of sizeSpecs"> s </span>
+              </div>
+              <br>
+              <div class="col-12">
+                <button class="btn w-100 text-white" >
+                  <i class="fa fa-solid fa-shopping-cart "></i><strong class="px-2">'details.Add To Cart' |
+                    translate</strong>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  
+  
+  
+    <div class="col-4 my-4 card-res-size">
+      <div class="card mb-3 ">
+  
+        <p class="list-group-item"><strong>Booking Information</strong></p>
+        <div>
+          <p class="list-group-item"><strong>Book</strong></p>
+          <p class="list-group-item"><strong>Examination</strong></p>
+        </div>
+        <hr>
+       <div class="row p-6 ">
+        <div class="col-4">
+          <i  style="color: chocolate;" class=" pi pi-wallet"></i>  
+          <p>Fees400 EGP</p>
+        </div>
+
+        <div class="col-6">
+          <i  style="color: chocolate;" class=" pi pi-clock"></i>  
+          <div>Waiting Time : 1 Hour and 23 Minutes</div>
+        </div>
+
+       </div>
+        <hr>
+  
+  
+        <div class=" ">
+          <div class="">
+            <i  style="color: chocolate;" class=" pi pi-map-marker"></i> 
+            <span>
+              El-Dokki : ElDokki street</span> 
+              <p>Book now to receive the clinic’s address details and phone number</p>
+          </div>
+        </div>
+        <hr>
+  
+        <div class="row p-2 ">
+          <h3>Choose your appointment</h3>
+          <div class=" col-3">
+            <img class="img-ord border rounded p-1" src="assets/icons/Return .png" alt="">
+          </div>
+          <div class=" col-9 ">
+            <p class="me-5 "><strong>'details.Return Policy' | translate</strong></p>
+            <p>
+              <small>
+                'details.Free return within the legal return period from 14 to 30 days, and if they meet the terms & conditions, with the need to report any apparent defect within 48 hours. For more details about return policy.' | translate</small>
+            </p>
+          </div>
+  
+        </div>
+        <hr>
+        <div>
+          
+         <p>Appointment reservation</p>
+  
+        </div>
+        <hr>
+        <div>
+          <i  style="color:chartreuse; font-weight: 10 !important; font-size: 4rem;" class=" pi pi-calendar-clock
+          "></i> 
+         <p>
+          Book online, Pay at the clinic!</p>
+          <p>Doctor requires reservation!</p>
+        </div>
+  
+        
+      </div>
+      <div class="" style="text-align: center;">
+  
+        <h6><small class="text-secondary">By proceeding, you are automatically accepting the </small></h6>
+        <a><small>Terms & Conditions</small></a>
+      </div>
+  
+    </div>
+  
+  
+  
+  
+  
+  <div class="col-8 card-res-size card  details " >
+    <h1 class="border-bottom">'details.Product Details' | translate</h1>
+    <div>
+      <h3>'details.Specfications' | translate</h3>
+      <ul>
+  
+        <li class="" *ngFor="let spec of AllSpecs">
+         
+          <span class="specName"> spec.specificationName :</span> <span>  spec.value </span>
+        </li>
+      </ul>
+    </div>
+  
+  </div>
+  
+ 

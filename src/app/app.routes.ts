@@ -13,18 +13,10 @@ import { DoctorsComponent } from '../app/Components/Doctorss/doctors/doctors.com
 import { ReviewsComponent } from './Components/Reviewss/reviews/reviews.component';
 import { AllBookingComponent } from './Components/Bookings/all-booking/all-booking.component';
 import { HightratedReviewComponent } from './Components/Reviewss/hightrated-review/hightrated-review.component';
+import { ApproveDoctorComponent } from './Components/approve-doctor/approve-doctor.component';
+import { DoctorDetailsComponent } from './Components/doctor-details/doctor-details.component';
 
 export const routes: Routes = [
-    // {
-    //     path: '', 
-    //     component: AdminloginComponent,
-    //     children: [
-    //         { path: '', redirectTo: 'main', pathMatch: 'full' },
-    //         { path: 'loginform', component: LoginformComponent },
-    //     ],
-    // },
-   // { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
-   // { path: 'loginform', component: LoginformComponent },
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
    { path: 'loginform', component: LoginformComponent },
     { path: 'dashbord', component: AadminDashbordComponent,
@@ -34,6 +26,8 @@ export const routes: Routes = [
             { path: 'allpatients', component: AllpatientsComponent },
             { path: 'allapp', component: AppointementsComponent },
             { path: 'allDoc', component: DoctorsComponent },
+            { path: 'ApproveDoc', component: ApproveDoctorComponent },
+            { path: 'DocDetails/:id', component: DoctorDetailsComponent },
             { path: 'allrev', component: ReviewsComponent },
             { path: 'hightrev', component: HightratedReviewComponent },
             { path: 'allbooks', component: AllBookingComponent },
