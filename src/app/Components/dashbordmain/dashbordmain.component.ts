@@ -16,11 +16,16 @@ import{PrimeModule} from '../../prime.module'
 import { InputIconModule } from 'primeng/inputicon';
 import { IconFieldModule } from 'primeng/iconfield';
 import { ChartModule } from 'primeng/chart';
+import { MeterGroupModule } from 'primeng/metergroup';
+import { CardModule } from 'primeng/card';
+import { PaginatorModule } from 'primeng/paginator';
+import { CarouselModule } from 'primeng/carousel';
+import { AppointementService } from '../../Service/appointement.service';
 @Component({
   selector: 'app-dashbordmain',
   standalone: true,
-  imports: [CommonModule, FormsModule, CalendarModule, TableModule, TagModule, RatingModule, 
-    InputTextModule, IconFieldModule,InputIconModule,ChartModule],
+  imports: [CommonModule, FormsModule, CalendarModule, TableModule, TagModule, RatingModule,CarouselModule, 
+    InputTextModule, IconFieldModule,InputIconModule,ChartModule,CardModule],
 providers: [ConfirmationService, MessageService,PrimeIcons,IconFieldModule],
   templateUrl: './dashbordmain.component.html',
   styleUrl: './dashbordmain.component.css'
@@ -29,8 +34,13 @@ export class DashbordmainComponent implements OnInit {
   basicData: any;
   basicOptions: any;
     data: any;
-
     options: any;
+    data3: any;
+    options3: any;
+    appointmentData: any;
+   chartOptions: any;
+
+   constructor(private appointementService: AppointementService) {}
 
   ngOnInit()
    {
@@ -109,7 +119,137 @@ export class DashbordmainComponent implements OnInit {
                   }
               }
           };
-      }
+
+          //thride
+          const documentStyle3 = getComputedStyle(document.documentElement);
+          const textColor3 = documentStyle.getPropertyValue('--text-color');
+          const textColorSecondary3 = documentStyle.getPropertyValue('--text-color-secondary');
+          const surfaceBorder3 = documentStyle.getPropertyValue('--surface-border');
+          
+          this.data3 = {
+              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              datasets: [
+                  {
+                      type: 'line',
+                      label: 'Dataset 1',
+                      borderColor: documentStyle.getPropertyValue('--blue-500'),
+                      borderWidth: 2,
+                      fill: false,
+                      tension: 0.4,
+                      data: [50, 25, 12, 48, 56, 76, 42]
+                  },
+                  {
+                      type: 'bar',
+                      label: 'Dataset 2',
+                      backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                      data: [21, 84, 24, 75, 37, 65, 34],
+                      borderColor: 'white',
+                      borderWidth: 2
+                  },
+                  {
+                      type: 'bar',
+                      label: 'Dataset 3',
+                      backgroundColor: documentStyle.getPropertyValue('--orange-500'),
+                      data: [41, 52, 24, 74, 23, 21, 32]
+                  }
+              ]
+          };
+          
+          this.options3 = {
+              maintainAspectRatio: false,
+              aspectRatio: 0.6,
+              plugins: {
+                  legend: {
+                      labels: {
+                          color: textColor
+                      }
+                  }
+              },
+              scales: {
+                  x: {
+                      ticks: {
+                          color: textColorSecondary
+                      },
+                      grid: {
+                          color: surfaceBorder
+                      }
+                  },
+                  y: {
+                      ticks: {
+                          color: textColorSecondary
+                      },
+                      grid: {
+                          color: surfaceBorder
+                      }
+                  }
+              }
+          };
+          //new
+          this.getAppointmentsByYear();
+          this.setupChartOptions();
+ }
   
+  
+ getAppointmentsByYear()
+  {
+    this.appointementService.getAllAppointments(20,1).subscribe((response) => {
+      const yearCounts: { [key: string]: number } = {};
+      response.entities.forEach((appointment: any) => {
+        const year = new Date(appointment.time).getFullYear();
+        yearCounts[year] = (yearCounts[year] || 0) + 1;
+      });
+
+      const labels = Object.keys(yearCounts);
+      const values = Object.values(yearCounts);
+
+      this.appointmentData = {
+        labels: labels,
+        datasets: [
+          {
+            label: 'Number of Appointments',
+            backgroundColor: '#42A5F5',
+            borderColor: '#1E88E5',
+            data: values
+          }
+        ,
+          {
+            type: 'bar',
+            label: 'Dataset 2',
+            backgroundColor: '#e0932d',
+            data: values,
+            borderColor: 'white',
+            borderWidth: 1
+        },
+        ]
+      };
+    });
+  }
+
+  setupChartOptions() {
+    this.chartOptions = {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top'
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Year'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Number of Appointments'
+          },
+          beginAtZero: true
+        }
+      }
+    };
+  }
   }
 
