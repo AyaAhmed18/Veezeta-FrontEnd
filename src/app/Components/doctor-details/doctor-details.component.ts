@@ -10,4 +10,8 @@ import { IDoctor } from '../../models/idoctor';
 })
 export class DoctorDetailsComponent {
 doctor!:IDoctor
+
+BookApp(){
+  
+}
 }

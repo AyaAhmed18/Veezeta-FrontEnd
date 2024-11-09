@@ -15,6 +15,8 @@ import { AllBookingComponent } from './Components/Bookings/all-booking/all-booki
 import { HightratedReviewComponent } from './Components/Reviewss/hightrated-review/hightrated-review.component';
 import { ApproveDoctorComponent } from './Components/approve-doctor/approve-doctor.component';
 import { DoctorDetailsComponent } from './Components/doctor-details/doctor-details.component';
+import { ProfileComponent } from './Components/Website/profile/profile.component';
+import { MyAppointmentComponent } from './Components/Website/my-appointment/my-appointment.component';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
@@ -31,6 +33,15 @@ export const routes: Routes = [
             { path: 'allrev', component: ReviewsComponent },
             { path: 'hightrev', component: HightratedReviewComponent },
             { path: 'allbooks', component: AllBookingComponent },
+        ],
+    },
+    { path: 'website', component: MyAppointmentComponent,
+        children: [
+            { path: '', pathMatch: 'full', redirectTo: 'main' },
+            { path: 'profile', component: ProfileComponent },
+            { path: 'appointment', component: MyAppointmentComponent },
+           
+           
         ],
     },
     // { path: 'allpatients', component: AllpatientsComponent },
