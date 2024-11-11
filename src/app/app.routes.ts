@@ -17,6 +17,9 @@ import { ApproveDoctorComponent } from './Components/approve-doctor/approve-doct
 import { DoctorDetailsComponent } from './Components/doctor-details/doctor-details.component';
 import { ProfileComponent } from './Components/Website/profile/profile.component';
 import { MyAppointmentComponent } from './Components/Website/my-appointment/my-appointment.component';
+import { PharmacyComponent } from './Components/Website/pharmacy/pharmacy.component';
+import { SignUpComponent } from './Components/Website/sign-up/sign-up.component';
+import { DoctorDetails2Component } from './Components/Website/doctor-details2/doctor-details.component';
 
 export const routes: Routes = [
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
@@ -35,11 +38,13 @@ export const routes: Routes = [
             { path: 'allbooks', component: AllBookingComponent },
         ],
     },
-    { path: 'website', component: MyAppointmentComponent,
+    { path: 'website', component: DoctorDetails2Component,
         children: [
             { path: '', pathMatch: 'full', redirectTo: 'main' },
             { path: 'profile', component: ProfileComponent },
-            { path: 'appointment', component: MyAppointmentComponent },
+            { path: 'Doctordetails', component: DoctorDetails2Component },
+            { path: 'Pharmacy', component: PharmacyComponent },
+            { path: 'Signup', component: SignUpComponent },
            
            
         ],

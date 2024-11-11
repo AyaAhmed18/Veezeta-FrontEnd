@@ -1,0 +1,43 @@
+.all{
+   
+    border-radius: 3%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+    padding: 3px;
+ 
+  
+
+}
+.docimg{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: 9px;
+    border: 1px solid black;
+    
+}
+.headbook{
+   text-align: center;
+   background-color: #0070cd;
+   color: white;
+}
+.book{
+    background-color: rgb(196, 22, 22);
+    color: white;
+    text-align: center;
+
+}
+.space{
+    margin: 3px;
+    color: gray;
+    padding-top: 4px;
+}
+.icons{
+    text-decoration: underline red;
+    color: #0070cd;
+}
+a{
+text-decoration: none;
+}
