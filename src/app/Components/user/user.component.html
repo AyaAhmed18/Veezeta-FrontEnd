@@ -1,0 +1,547 @@
+<head>
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header style="background-color: #0070cd;" class="text-white">
+        <nav class="navbar navbar-expand-lg  ">
+            
+            <!-- left -->
+            <div class="d-flex align-items-center">
+                <a class="navbar-brand" >
+                    <img 
+                        alt=" | Book the Best Doctors and Get your Meds Online" 
+                        title="Book the Best Doctors in Egypt" 
+                        src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/whitelogowithdotcom.png" 
+                        itemprop="logo" 
+                        class="HeaderTopBarstyle__MainLogo-sc-1o1fu0h-0 KIjUU"
+                        style="height:5vh ;margin-left: 2rem;"
+                    >
+                </a>
+                <button class="navbar-toggler ml-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+               
+            </div>
+            
+            <!-- right -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item box"><a class="nav-link box2" >Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link"><span class="line">Login |</span></a></li>
+                    <li class="nav-item"><a class="nav-link"><span class="line">Vezzeta For Doctors &nbsp;|</span></a></li>
+                    <li class="nav-item"><a class="nav-link"><span class="line">Contact Us &nbsp;|</span></a></li>
+                    <li class="nav-item"><a class="nav-link"><span class="line">عربي &nbsp;|</span></a></li>
+                    <li class="nav-item"><a class="nav-link">
+                        <img class="flag-image" src="https://uxwing.com/wp-content/themes/uxwing/download/flags-landmarks/egypt-flag-icon.png">
+                        <span class="line">Egypt</span>
+                    </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+<!-- end nav -->
+
+
+<!---slider-->
+    <div class="" id="slider-top">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
+        <div class="carousel-inner">
+            <div
+            class="carousel-item"
+            data-bs-interval="800"
+            *ngFor="let slid of sliders; let i = index"
+            [ngClass]="{ active: i === 0 }"
+            >
+            <img [src]="slid.backdrop_path" class="d-block w-100" style="height: 750px; margin-bottom: 0px;" alt="Slider Image">
+            
+            <div class="carousel-caption contains">
+                <h2 >Better Healthcare for a Better Life</h2>
+                <h5 class="titled" >Book online or call <i class="fa-solid fa-phone" style="color: red;font-size: 25px;"></i> 16676</h5>
+            </div>
+            <!-- searsh -->
+            <div class="carousel-search searsh">
+                <!-- Book a doctor & Telehealth -->
+                <div class="search-bar-tab">    
+                    <!-- Book a doctor  -->
+                    <div 
+                        class="search-bar-tab-title" 
+                        [class.active]="activeTab === 'title'" 
+                        (click)="setActiveTab('title')">
+                        <i class="pi pi-calendar" style="font-size: 1.5em; vertical-align: middle;"></i>                 
+                        Book a doctor 
+                        <div style="font-size: 15px; font-weight:500; margin-top: 0px;margin-left: 60px;">Examination or procedure</div>
+                    </div>    
+
+                    <!-- Telehealth -->
+                    <div 
+                    class="search-bar-tab-desc" 
+                    [class.active]="activeTab === 'desc'" 
+                    (click)="setActiveTab('desc')">
+                    <i class="pi pi-headphones" style="font-size: 1.5em; vertical-align: middle;"></i>
+                    Telehealth
+                    <div class="call" style="font-size: 15px; font-weight:500; margin-top: 0px;margin-left: 100px;">Call consultation with doctor</div>
+                    </div>
+
+                </div>
+
+                <!-- search input -->
+                <div class="search-input ">
+                <div class="d-flex justify-content-between">
+                        <!-- Dropdown 1 -->
+                        <div class="btn-group flex-fill">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div style="width: 200px;  display: inline-block;">
+                                    <div>Select a specialty</div>
+                                    <div class="under">  
+                                        <i class="fas fa-stethoscope" style="font-size: 1.5em; vertical-align: middle; margin-right: 10px;"></i>
+                                        Choose specialty
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action 2</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    
+                        <!-- Dropdown 2 -->
+                        <div class="btn-group flex-fill">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div style="width: 200px;  display: inline-block;">
+                                    <div>in this city</div>
+                                    <div class="under">  
+                                        <i class="fas fa-map-marker-alt" style="font-size: 1.5em; vertical-align: middle; margin-right: 10px;"></i>
+                                        Choose city
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action 2</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    
+                        <!-- Dropdown 3 -->
+                        <div class="btn-group flex-fill">
+                            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div style="width: 200px;  display: inline-block;">
+                                    <div>in this area</div>
+                                    <div class="under">  
+                                        <i class="fas fa-map-marker-alt" style="font-size: 1.5em; vertical-align: middle; margin-right: 10px;"></i>
+                                        Chose area
+                                    </div>
+                                </div>
+                            </button>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Action 2</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </div>
+                    
+                        <!-- Dropdown 4 -->
+                        <div class="btn-group flex-fill">
+                            <button type="button" class="btn"  aria-haspopup="true" aria-expanded="false" style="padding: 0; border: 1px solid #ccc;">
+                                <span style="margin-left: 1rem;">or search by name</span>
+                                <div style="display: flex; align-items: center; width: 400px;"> 
+
+                                    <div class="under" style="display: flex; align-items: left;margin-left: 1rem;">
+                                    <i class="fas fa-map-marker-alt" style="font-size: 1.2em; margin-right: 8px;"></i>
+                                    <input 
+                                        type="text"
+                                        placeholder="Doctor name or hosp..."
+                                        style="border: none; outline: none; width: 200px;" 
+                                    />
+                                    </div>
+
+                            </div>
+                            </button>
+                            <div class="dropdown-menu"></div>
+                        </div>
+                        
+                        <!-- Dropdown 5 -->
+                        <div class="btn-group flex-fill serchd">
+                            <button type="button" class="btn serchd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="display: flex; align-items: center; justify-content: center; padding: 0;">
+                            <div class="under" style="display: flex; align-items: center;">
+                                <span class="text-color">Search</span>
+                                <i class="fas fa-search icon-color" style="font-size: 1.2em; margin-right: 8px;"></i>
+                            </div>
+                            </button>
+                        </div>
+                
+                    </div>
+                </div>
+                
+            </div>
+
+            </div>
+        </div>
+        
+        </div>
+    </div>
+<!--end-slider-->
+
+ <!-- 5 services  -->
+    <div class=" services">
+        <div class="container-fluid ">
+            <h1 class="New">New services for better healthcare</h1>
+                    <!-- first service-item  -->
+                <div class="service-item sitem1">
+                    <div class="row">
+                    <div class="column d-flex ">
+                        <div class="sub-column imgdiv">
+                            <img alt="shamel points logo" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/shamel-logo.webp" class="ShamelBannerstyle__BannerImg-sc-7i6x2b-5 fAnZVW">
+                        </div>
+                        <div class="sub-column">
+                            <img alt="shamel logo" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/shamel-text-logo.webp" class="ShamelBannerstyle__BannerTitleImg-sc-7i6x2b-4 bkkzow">
+                            <br>
+                            Save up to 80% on all medical services<br>
+                            The network is available only through the App
+                        </div>
+                    </div>
+                    <div class="column right1">
+                        <button class="centered-button">See Details</button>
+                    </div>
+                    </div>
+                </div>
+                    <!-- secound service-item  -->
+                <div class="service-item sitem2 ">
+                    <div class="row">
+                    <div class="column d-flex ">
+                        <div class="sub-column imgdiv">
+                            <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/mental-health-image.png" alt="North-banner" class="BannerWithFullColumnImgstyle__BannerImg-sc-166s1zp-4 fsukIu">
+                        </div>
+                        <div class="sub-column">
+                            <br>
+                            <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/mental-health-logo.svg" alt="North" class="BannerWithFullColumnImgstyle__BannerLogo-sc-166s1zp-1 enQjyo">
+                        <br>
+                        <span class="North">North, your way to practice peace.</span> 
+                        </div>
+                    </div>
+                    <div class="column right1">
+                        <button class="centered-button2">Explor North</button>
+                    </div>
+                    </div>
+                </div>
+                    <!-- thride service-item  -->
+                <div class="service-item sitem2 ">
+                    <div class="row">
+                    <div class="column d-flex ">
+                        <div class="sub-column" style="padding: 20px; color: #666666;">
+                            <h3>Have a medical quastion?</h3>
+                            <span class="NewSolutionsstyle__BannerDescription-sc-k98jre-14 bRrnhX">Submit your medical question and receive an answer from a specialized doctor</span>
+                        <div class="column right1">
+                            <button class="centered-button2">Ask Now</button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="column ">
+                    
+                    </div>
+                    </div>
+                </div>
+                    <!-- four service-item  -->
+                <div class="service-item sitem2 uu ">
+                        <div class="row">
+                            <div class="column d-flex " style=" padding-top: 40px; box-sizing: border-box;"  >
+                                <div class="sub-column" style="padding: 20px; color: #ffffff;">
+                                    <h3>Have a medical quastion?</h3>
+                                    <span class="NewSolutionsstyle__BannerDescription-sc-k98jre-14 bRrnhX">Get your medicine and all your pharmacy needs.</span>
+                                <div class="column right1">
+                                    <button class="centered-button3">Place order</button>
+                                </div>
+                                </div>
+                            </div>
+
+                            <div class="column al" style="display: flex; align-items: center; justify-content: center;;">
+                                <img src="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_105r07r000000000000028.png" 
+                                    alt="" loading="lazy" 
+                                    data-src-desktop-1x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_105r07r000000000000028.png" 
+                                    data-src-desktop-2x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_10bi0fi000000000000028.png" 
+                                    data-src-desktop-3x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_1000000000000000000028.png" 
+                                    data-src-mobile-1x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_1029032000000000000028.png" 
+                                    data-src-mobile-2x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_104i064000000000000028.png" 
+                                    data-src-mobile-3x="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_106r096000000000000028.png" 
+                                    srcset="//d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_105r07r000000000000028.png 1x, 
+                                            //d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_10bi0fi000000000000028.png 2x, 
+                                            //d9hhrg4mnvzow.cloudfront.net/landing.vezeeta.com/homevisitseg/1de411d4-group-29_1000000000000000000028.png 3x">
+                            </div>
+                            
+                        </div>
+                </div>
+                <!-- Fifth service item -->
+                <div class="sitem5">
+                    
+                        <div class="column5 d-flex ">
+                            <div class="sub-column imgdiv">
+                                <img class=" NewSolutionsstyle__CardImage-sc-k98jre-5 bYtcGu ls-is-cached lazyloaded" data-src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/telehealth-solution-card/desktop.webp" alt="Teleconsultation" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/telehealth-solution-card/desktop.webp">
+                            </div>
+                            <div class="sub-column">
+                                <h4 class="hbook">Teleconsultation</h4>
+                            <p class="pp">Schedule a voice or video call with a<br> specialized doctor.</p> 
+                            <a class="book-link">Booh a call <i class="pi pi-angle-right" style="color: rgb(210, 14, 14)"></i></a>                   
+                            </div>
+                        
+                        </div>
+
+                        <div class="column5 d-flex ">
+                            <div class="sub-column imgdiv">
+                                <img class="NewSolutionsstyle__CardImage-sc-k98jre-5 bYtcGu ls-is-cached lazyloaded" data-src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/homevisits-solution-card/eg/desktop.webp" alt="Home Visit" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/homevisits-solution-card/eg/desktop.webp">                   
+                            </div>
+                            <div class="sub-column">
+                                <h4 class="hbook">Home visit</h4>
+                            <p class="pp">Choose the specialty, and the doctor will<br> visit you at home.</p> 
+                            <a class="book-link">Booh a visit <i class="pi pi-angle-right" style="color: rgb(210, 14, 14)"></i></a>
+                            
+                            </div>
+                        </div>
+
+                </div>
+        
+        </div>
+    </div>
+ <!-- end 5 services  -->
+
+<!--offers-->
+    <div class="offers">
+        <div class="container-fluid container-fluid2">
+        
+            <div class="card cardoff">
+                <h2 class="hoff">
+                    Choose from top offers
+                </h2>
+                <p-carousel 
+                    [value]="products" 
+                    [numVisible]="4" 
+                    [numScroll]="4" 
+                    [circular]="false" 
+                    [responsiveOptions]="responsiveOptions">
+                        <ng-template let-product pTemplate="item">
+                        
+                            <div class="border-1 m-2 p-3">
+                                <!-- Image Container with Discount Label -->
+                                <div class="image-container">
+                                    <!-- Discount Label - This will appear on top-left of image -->
+                                    <div class="discount-label">-{{ product.discount }}% Off</div>
+                                    
+                                    <p-image 
+                                        [src]="product.image" 
+                                        [alt]="product.name" 
+                                        [preview]="true" 
+                                        class="w-full border-round">
+                                    </p-image>
+                                </div>
+
+                                <div class="mb-3 font-medium">
+                                <h5 style="font-size: 18px; color: #666666; font-weight: 600;">{{ product.name }}</h5> 
+                                <span style="font-size: 18px; text-decoration: line-through; color: #B9B9B9;">{{ product.price + 'EGP' }}</span>
+                                <span style="font-size: 18px; text-decoration: none; margin-left: 3px; color: #0070cd;">{{ product.discount + 'EGP' }}</span>
+                                <br>
+                                <span style="color: #6f7072;">{{ product.offernumber }} Offers</span>  
+                                </div>
+                            </div>
+                        </ng-template>
+                </p-carousel>
+            </div>
+        </div>
+    </div>
+<!-- endoffers-->
+
+
+<!--Book from top specialties-->
+    <div class="offers">
+        <div class="container-fluid container-fluid2">
+        
+            <div class="card cardoff">
+                <h2 class="hoff">
+                    Book from top specialties
+                </h2>
+                <p-carousel 
+                    [value]="products" 
+                    [numVisible]="4" 
+                    [numScroll]="4" 
+                    [circular]="false" 
+                    [responsiveOptions]="responsiveOptions">
+                        <ng-template let-product pTemplate="item">
+                        
+                            <div class="border-1 m-2 p-3">
+                                <!-- Image Container with Discount Label -->
+                                <div class="image-container">
+                                
+                                    <p-image 
+                                        [src]="product.image" 
+                                        [alt]="product.name" 
+                                        [preview]="true" 
+                                        class="w-full border-round">
+                                    </p-image>
+                                    <div class="undrimg" style="color: #6f7072;">{{ product.offernumber }} Offers</div>  
+                                </div>
+
+                                <!-- <div class="mb-3 font-medium">
+                                <h5 style="font-size: 18px; color: #666666; font-weight: 600;">{{ product.name }}</h5> 
+                                <span style="font-size: 18px; text-decoration: line-through; color: #B9B9B9;">{{ product.price + 'EGP' }}</span>
+                                <span style="font-size: 18px; text-decoration: none; margin-left: 3px; color: #0070cd;">{{ product.discount + 'EGP' }}</span>
+                                <br>
+                                <span style="color: #6f7072;">{{ product.offernumber }} Offers</span>  
+                                </div> -->
+                            </div>
+                        </ng-template>
+                </p-carousel>
+            </div>
+        </div>
+    </div>
+<!-- end Book from top specialties-->
+
+<!--Download -->
+
+    <div class="containers">
+        <div class="containerson">
+
+            <div class="columns uper">
+                <div class="health">
+                    <img alt="All your healthcare needs" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/medical-care-icon.svg" class="UniqueSellingPointsstyle__PointImage-sc-1eleeat-3 dtcrYr">
+                    <h2 >All your healthcare needs</h2>
+                    <p class="phealth">
+                        Search and book a clinic visit, home visit, 
+                        or a teleconsultation. Order your medicine and book a service or operation.
+                    </p>
+                </div>
+
+                <div class="health">
+                    <img alt="Verified patient reviews" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/doctor-icon.svg" class="UniqueSellingPointsstyle__PointImage-sc-1eleeat-3 dtcrYr">
+                    <h2 >Verified patient reviews</h2>
+                    <p class="phealth">
+                        Doctor ratings are from patients who booked and visited the doctor through Vezeeta.
+                    </p>
+                </div>
+
+            <div class="health">
+                <img alt="Your booking is confirmed" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/booking-icon.svg" class="UniqueSellingPointsstyle__PointImage-sc-1eleeat-3 dtcrYr">
+                    <h2 >Your booking is confirmed</h2>
+                    <p class="phealth">
+                        our booking is automatically confirmed, 
+                        as the doctor specifies his working hours 
+                        and is notified of the booking details
+                    </p>
+                </div>
+
+            <div class="health">
+                <img alt="Book for free, and pay in the clinic " src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/security-icon.svg" class="UniqueSellingPointsstyle__PointImage-sc-1eleeat-3 dtcrYr">
+                    <h2 >Book for free, and pay in the clinic</h2>
+                    <p class="phealth">
+                        The consultation fees stated on Vezeeta are the actual doctor's 
+                        fees with no extra charges.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="columns downh">
+                <div class="rowd">
+                        <h2>Download Vezeeta Application</h2>
+                        <p style="line-height: 30px; font-weight: 600;">
+                            Search, compare and book doctor consultations with ease. 
+                            Order your medicines & get them deilvered within 60 minutes. 
+                            Track your steps count & earn points on hitting the daily goal
+                        </p>   
+                        <div class="dbutton">
+                                 <!-- HTML !-->
+                             <button class="button-46 button-2" role="button">
+                                <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/apple-logo.svg">
+                               <span class="sites">App Store</span>
+                            </button>
+                             <button class="button-46 " role="button">
+                                <img alt="Google Play logo" src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/google-play-logo.svg" class="DownloadBannerstyle__DownloadVendorIcon-sc-19fh9n5-8 krvnoN">
+                                <span class="sites">Google Play</span>
+                            </button>
+                             <button class="button-46 button2" role="button">
+                              <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/AppGallery.svg">
+                              <span class="sites">App Gallary</span>
+                            </button>
+
+                        </div>
+                </div>
+            <div class="rowd rowd2">
+                <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/dowanloadApp-eg-en.webp">
+            </div>
+            </div>
+    </div>
+    </div>
+<!-- end Download -->
+ <!-- footer -->
+ <footer class="footer">
+    <div class="footer-container">
+      <!-- Column 1 -->
+      <div class="footer-column">
+        <ul>
+         <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/whitelogowithdotcom.png">
+          <li><a >About Us</a></li>
+          <li><a> Our Team</a></li>
+          <li><a > Careers</a></li>
+          <li><a > Press</a></li>
+        </ul>
+      </div>
+      <!-- Column 2 -->
+      <div class="footer-column">
+        <ul>
+          <h4>Search by</h4>
+          <li><a > Speciality</a></li>
+          <li><a>Area</a></li>
+          <li><a>Insurance</a></li>
+          <li><a >Hospital</a></li>
+          <li><a>Center</a></li>
+        </ul>
+      </div>
+      <!-- Column 3 -->
+      <div class="footer-column">
+        <ul>
+          <h4>Are you a doctor ?</h4>
+          <li><a >Join Vezeeta doctors</a></li>
+        </ul>
+      </div>
+      <!-- Column 4 -->
+      <div class="footer-column">
+        <ul>
+          <h4>Need help?</h4>
+          <li><a href="#"> Medical Library</a></li>
+          <li><a href="#"> Contact Us</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#"> Doctors Privacy Policy</a></li>
+        </ul>
+      </div>
+       <!-- Column 5 -->
+       <div class="footer-column">
+        <ul>
+            
+                <img alt="Google Play logo" src=" https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/google-play-badge.png" class="store">
+              
+                   <br>
+                <img src="https://d1aovdz1i2nnak.cloudfront.net/vezeeta-web-reactjs/60569/_next/static/images/app-store-badge.png" class="store">
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  
+        </ul>
+      </div>
+    </div>
+ </footer>
+  
+      
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+        

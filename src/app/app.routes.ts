@@ -7,21 +7,18 @@ import { AadminDashbordComponent } from './Components/aadmin-dashbord/aadmin-das
 import { AllpatientsComponent } from './Components/Patients/allpatients/allpatients.component';
 import { DashbordmainComponent } from './Components/dashbordmain/dashbordmain.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { AddRoleComponent } from './Components/add-role/add-role.component';
+// import { AddRoleComponent } from './Components/add-role/add-role.component';
 import { AppointementsComponent } from './Components/Appointementss/appointements/appointements.component';
 import { DoctorsComponent } from '../app/Components/Doctorss/doctors/doctors.component';
 import { ReviewsComponent } from './Components/Reviewss/reviews/reviews.component';
 import { AllBookingComponent } from './Components/Bookings/all-booking/all-booking.component';
 import { HightratedReviewComponent } from './Components/Reviewss/hightrated-review/hightrated-review.component';
+import { UserComponent } from './Components/user/user.component';
 import { ApproveDoctorComponent } from './Components/approve-doctor/approve-doctor.component';
 import { DoctorDetailsComponent } from './Components/doctor-details/doctor-details.component';
-import { ProfileComponent } from './Components/Website/profile/profile.component';
-import { MyAppointmentComponent } from './Components/Website/my-appointment/my-appointment.component';
-import { PharmacyComponent } from './Components/Website/pharmacy/pharmacy.component';
-import { SignUpComponent } from './Components/Website/sign-up/sign-up.component';
-import { DoctorDetails2Component } from './Components/Website/doctor-details2/doctor-details.component';
 
 export const routes: Routes = [
+    
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
    { path: 'loginform', component: LoginformComponent },
     { path: 'dashbord', component: AadminDashbordComponent,
@@ -35,22 +32,15 @@ export const routes: Routes = [
             { path: 'DocDetails/:id', component: DoctorDetailsComponent },
             { path: 'allrev', component: ReviewsComponent },
             { path: 'hightrev', component: HightratedReviewComponent },
-            { path: 'allbooks', component: AllBookingComponent },
+           { path: 'allbooks', component: AllBookingComponent },
+            //{ path: 'user', component: UserComponent }, 
         ],
     },
-    { path: 'website', component: DoctorDetails2Component,
-        children: [
-            { path: '', pathMatch: 'full', redirectTo: 'main' },
-            { path: 'profile', component: ProfileComponent },
-            { path: 'Doctordetails', component: DoctorDetails2Component },
-            { path: 'Pharmacy', component: PharmacyComponent },
-            { path: 'Signup', component: SignUpComponent },
-           
-           
-        ],
-    },
-    // { path: 'allpatients', component: AllpatientsComponent },
+   //
+   
+   ///{ path: 'allbooks', component: AllBookingComponent },
+    { path: 'user', component: UserComponent },
     { path: 'register', component:  RegisterComponent },
-    { path: 'addrole', component:  AddRoleComponent },
+    // { path: 'addrole', component:  AddRoleComponent },
     { path: '**', component: NotFoundComponent }
 ];
