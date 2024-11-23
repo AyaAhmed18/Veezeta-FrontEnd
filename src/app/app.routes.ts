@@ -7,24 +7,16 @@ import { AadminDashbordComponent } from './Components/aadmin-dashbord/aadmin-das
 import { AllpatientsComponent } from './Components/Patients/allpatients/allpatients.component';
 import { DashbordmainComponent } from './Components/dashbordmain/dashbordmain.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { AddRoleComponent } from './Components/add-role/add-role.component';
+// import { AddRoleComponent } from './Components/add-role/add-role.component';
 import { AppointementsComponent } from './Components/Appointementss/appointements/appointements.component';
 import { DoctorsComponent } from '../app/Components/Doctorss/doctors/doctors.component';
 import { ReviewsComponent } from './Components/Reviewss/reviews/reviews.component';
 import { AllBookingComponent } from './Components/Bookings/all-booking/all-booking.component';
 import { HightratedReviewComponent } from './Components/Reviewss/hightrated-review/hightrated-review.component';
+import { UserComponent } from './Components/user/user.component';
 
 export const routes: Routes = [
-    // {
-    //     path: '', 
-    //     component: AdminloginComponent,
-    //     children: [
-    //         { path: '', redirectTo: 'main', pathMatch: 'full' },
-    //         { path: 'loginform', component: LoginformComponent },
-    //     ],
-    // },
-   // { path: '', redirectTo: 'dashbord/main', pathMatch: 'full' },
-   // { path: 'loginform', component: LoginformComponent },
+    
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
    { path: 'loginform', component: LoginformComponent },
     { path: 'dashbord', component: AadminDashbordComponent,
@@ -36,11 +28,15 @@ export const routes: Routes = [
             { path: 'allDoc', component: DoctorsComponent },
             { path: 'allrev', component: ReviewsComponent },
             { path: 'hightrev', component: HightratedReviewComponent },
-            { path: 'allbooks', component: AllBookingComponent },
+           { path: 'allbooks', component: AllBookingComponent },
+            //{ path: 'user', component: UserComponent }, 
         ],
     },
-    // { path: 'allpatients', component: AllpatientsComponent },
+   //
+   
+   ///{ path: 'allbooks', component: AllBookingComponent },
+    { path: 'user', component: UserComponent },
     { path: 'register', component:  RegisterComponent },
-    { path: 'addrole', component:  AddRoleComponent },
+    // { path: 'addrole', component:  AddRoleComponent },
     { path: '**', component: NotFoundComponent }
 ];
