@@ -12,6 +12,12 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
+import { DoctorService } from '../../../Service/doctor.service';
+import { IDoctor } from '../../../models/idoctor';
+import { SpecializationService } from '../../../Service/specialization.service';
+import { ISpecialization } from '../../../models/ispecialization';
+import { FormsModule, NgModel } from '@angular/forms';
+import { CountryService } from '../../../Service/country.service';
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -22,6 +28,7 @@ import { ImageModule } from 'primeng/image';
     CarouselModule,
     TagModule,ButtonModule,
     ImageModule,
+    FormsModule
   ],
   providers: [ConfirmationService, ConfirmPopupModule, MessageService, PrimeIcons,],
   templateUrl: './user.component.html',
@@ -29,6 +36,21 @@ import { ImageModule } from 'primeng/image';
 })
 export class UserComponent implements OnInit 
 {
+
+  /////////////Search for Doctor //////////////////////////////
+  constructor( private _DoctorService: DoctorService,private _specializationService:SpecializationService,private _countryService: CountryService) {}
+  Items!:number
+  pageNumber!:number
+  SpecializationTitle?:string
+  country?:string
+  Area?:string
+   Name?:string
+   Doctors:IDoctor[]=[]
+   spectialization:ISpecialization[]=[]
+   cities: any[] = [];
+   DoctorsNumber:number=0;
+   ///////////////////////////////////////////////////////////////
+
   sliders: any[] = [];
   activeTab: string = 'title'; 
   items: MenuItem[] | undefined;
@@ -39,6 +61,9 @@ export class UserComponent implements OnInit
   }
   ngOnInit(): void 
   {
+    this.SearchForDoctors();
+    this.getSpetialization();
+    this.getCities();
     //slider image
    
     this.sliders = [
@@ -186,7 +211,48 @@ export class UserComponent implements OnInit
       ];
     }
 
+    SearchForDoctors() {
+      this._DoctorService.SearchForDoctors(this.SpecializationTitle,this.country,this.Area,this.Name,this.Items, this.pageNumber).subscribe({
+        next: (res) => {
+         this.Doctors=res.entities
+         this.DoctorsNumber = res.count;
+          console.log("Fetched doctors", this.Doctors);
+        },
+        error: (error) => {
+          console.error('Error fetching Doctors:', error);
+        }
+      });
+    }
 
+    getSpetialization() {
+      this._specializationService.GetAllSpecialization().subscribe({
+        next: (res) => {
+         this.spectialization=res
+          console.log("Fetched spectialization", this.spectialization);
+          this.spectialization.forEach(e => {
+          console.log( e.title) 
+          });
+        },
+        error: (error) => {
+          console.error('Error fetching Doctors:', error);
+        }
+      });
+    }
+
+    getCities() {
+      this._countryService.getAllCities().subscribe({
+        next: (response) => {
+          this.cities = response;
+          console.log('Cities:', this.cities);
+          this.cities.forEach(e => {
+            console.log( e.display_name) 
+            });
+        },
+        error: (err) => {
+          console.error('Error fetching cities:', err);
+        }
+      });
+    }
   
 }
 

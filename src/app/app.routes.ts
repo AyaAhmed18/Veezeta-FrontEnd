@@ -21,6 +21,7 @@ export const routes: Routes = [
     
    { path: '', redirectTo: 'loginform', pathMatch: 'full' },
    { path: 'loginform', component: LoginformComponent },
+
     { path: 'dashbord', component: AadminDashbordComponent,
         children: [
             { path: '', pathMatch: 'full', redirectTo: 'main' },
@@ -37,10 +38,13 @@ export const routes: Routes = [
         ],
     },
    //
-   
+   { path: 'Home', component: UserComponent },
+   { path: 'register', component:  RegisterComponent },
+   // { path: 'addrole', component:  AddRoleComponent },
+   { path: '**', component: NotFoundComponent }
+  
+
+
    ///{ path: 'allbooks', component: AllBookingComponent },
-    { path: 'user', component: UserComponent },
-    { path: 'register', component:  RegisterComponent },
-    // { path: 'addrole', component:  AddRoleComponent },
-    { path: '**', component: NotFoundComponent }
+   
 ];

@@ -41,6 +41,9 @@ export class DoctorService {
 
    }
 
-   
+   SearchForDoctors( Specialization:string|undefined,country:string|undefined,Area:string|undefined, Name:string|undefined,items:number,pageNumber:number):Observable<any>{
+     return this.httpclient.get<IDoctor[]>(`http://localhost:46580/api/Doctor/AllDoctorFilters`);    
+
+   }
 
 }
