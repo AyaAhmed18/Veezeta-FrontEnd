@@ -12,6 +12,11 @@ import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
+//my
+import{Offers} from '../../../models/Website/Offers';
+import{UserService } from '../../../Service/Website/user.service';
+
+//my off
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -34,9 +39,16 @@ export class UserComponent implements OnInit
   items: MenuItem[] | undefined;
   products: any[] = [];
   responsiveOptions: any[] | undefined;
+//my
+ public pageSize = 20;
+  public pageNumber = 1;
+  tratmentopOffers: Offers[] = [];
+//my off
   setActiveTab(tab: string) {
-    this.activeTab = tab; // toggle the active tab
+    this.activeTab = tab; 
   }
+  constructor(private _userService: UserService) {}
+
   ngOnInit(): void 
   {
     //slider image
@@ -184,9 +196,23 @@ export class UserComponent implements OnInit
           numScroll: 1
         }
       ];
-    }
+      this. Gettopoffers();
+  }
 
-
+  Gettopoffers(): void
+  {
+    this._userService.getTOPoffer().subscribe(
+      {
+        next: (data) => {
+          this.tratmentopOffers = data.entities; 
+        },
+        error: (err) => {
+          console.error('Error fetching top offers:', err);
+      }
+     });
+    
+  }
+  
   
 }
 

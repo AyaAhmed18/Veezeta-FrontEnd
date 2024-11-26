@@ -623,8 +623,8 @@ footer {
 }
 
 :host ::ng-deep .p-carousel-item img {
-  width: 110%; 
-  height: auto;
+   width: 110%;  
+  height: 18rem;
   object-fit: cover;
   border-radius: 10px;
 }

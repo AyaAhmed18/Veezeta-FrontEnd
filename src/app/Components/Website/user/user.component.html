@@ -313,48 +313,58 @@
  <!-- end 5 services  -->
 
 <!--offers-->
-    <div class="offers">
-        <div class="container-fluid container-fluid2">
-        
-            <div class="card cardoff">
-                <h2 class="hoff">
-                    Choose from top offers
-                </h2>
-                <p-carousel 
-                    [value]="products" 
-                    [numVisible]="4" 
-                    [numScroll]="4" 
-                    [circular]="false" 
-                    [responsiveOptions]="responsiveOptions">
-                        <ng-template let-product pTemplate="item">
-                        
-                            <div class="border-1 m-2 p-3">
-                                <!-- Image Container with Discount Label -->
-                                <div class="image-container">
-                                    <!-- Discount Label - This will appear on top-left of image -->
-                                    <div class="discount-label">-{{ product.discount }}% Off</div>
-                                    
-                                    <p-image 
-                                        [src]="product.image" 
-                                        [alt]="product.name" 
-                                        [preview]="true" 
-                                        class="w-full border-round">
-                                    </p-image>
-                                </div>
-
-                                <div class="mb-3 font-medium">
-                                <h5 style="font-size: 18px; color: #666666; font-weight: 600;">{{ product.name }}</h5> 
-                                <span style="font-size: 18px; text-decoration: line-through; color: #B9B9B9;">{{ product.price + 'EGP' }}</span>
-                                <span style="font-size: 18px; text-decoration: none; margin-left: 3px; color: #0070cd;">{{ product.discount + 'EGP' }}</span>
-                                <br>
-                                <span style="color: #6f7072;">{{ product.offernumber }} Offers</span>  
-                                </div>
-                            </div>
-                        </ng-template>
-                </p-carousel>
+<div class="offers">
+    <div class="container-fluid container-fluid2">
+      <div class="card cardoff">
+        <h2 class="hoff">
+          Choose from top offers
+        </h2>
+        <p-carousel 
+          [value]="tratmentopOffers" 
+          [numVisible]="4" 
+          [numScroll]="4" 
+          [circular]="false" 
+          [responsiveOptions]="responsiveOptions">
+          <ng-template let-product pTemplate="item">
+            <div class="border-1 m-2 p-3">
+              <div class="image-container">
+                <div class="discount-label" *ngIf="product.discount">
+                  -{{ product.discount }}% Off
+                </div>
+                <p-image 
+                [src]="product.imageUrls[0]" 
+                  [alt]="product.name" 
+                  [preview]="true" 
+                  [style]="{'width': '20vw'}"
+                  
+                  class="w-full border-round">
+                 
+                </p-image>
+              </div>
+  
+              <!-- Product Info -->
+              <div class="mb-3 font-medium">
+                <h5 style="font-size: 18px; color: #666666; font-weight: 600;">
+                  {{ product.name }}
+                </h5>
+                <span style="font-size: 18px; text-decoration: line-through; color: #B9B9B9;">
+                  {{ product.price + ' EGP' }}
+                </span>
+                <span style="font-size: 18px; text-decoration: none; margin-left: 3px; color: #0070cd;">
+                  {{ product.newPrice + ' EGP' }}
+                </span>
+                <br>
+                <span style="color: #6f7072;">
+                  {{ product.subSpecializationName }}
+                </span>
+              </div>
             </div>
-        </div>
+          </ng-template>
+        </p-carousel>
+      </div>
     </div>
+  </div>
+  
 <!-- endoffers-->
 
 

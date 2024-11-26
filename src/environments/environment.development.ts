@@ -1,6 +1,7 @@
 export const environment = {
-    baseUrl:"http://localhost:5163/"
-    //46580
+    baseUrl:"http://localhost:5029/"
+    //"http://localhost:5163/"
+  
 
 // };
 
